@@ -1,0 +1,6 @@
+<<abstract>> Entité ( Classes Aventurier et Monstre )
+
+<<abstract>> Case (murs, vide, obstacle...)
+
+Classe Labyrinthe (- cases : ArrayList<Case>)
+
