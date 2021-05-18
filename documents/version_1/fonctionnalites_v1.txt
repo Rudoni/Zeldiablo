@@ -1,0 +1,13 @@
+* Fonctionnalités version 1
+
+- fonctionnalité 1 : Déplacer le joueur 
+- Gérer correctement les déplacements du joueur
+	- Il peut se déplacer dans les 4 directions ;
+	- Il ne peut pas traverser un mur, et peut marcher sur le sol ;
+	- Il ne peut pas sortir du labyrinthe autre part que la sortie ;
+	- Il ne se déplace que d’une case par déplacement ;
+
+Interface : Interface
+- Le jeu affiche les bonnes informations
+	- Le joueur et le labyrinthe affichent les bonnes informations ;
+	- Le joueur connait son nombre de points de vies à chaque moment ;
