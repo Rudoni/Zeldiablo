@@ -7,6 +7,10 @@
 	- Il ne peut pas sortir du labyrinthe autre part que la sortie ;
 	- Il ne se déplace que d’une case par déplacement ;
 
+- fonctionnalité 2 : entrée/sortie du labyrinthe
+    - le joueur rentre par l'entrée et peut sortir que par la sortie
+
+
 Interface : Interface
 - Le jeu affiche les bonnes informations
 	- Le joueur et le labyrinthe affichent les bonnes informations ;
