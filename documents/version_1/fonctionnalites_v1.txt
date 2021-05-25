@@ -8,13 +8,19 @@
 	- Il ne se déplace que d’une case par déplacement ;
 - responsable: ARNOUT Fabrice, Rudoni Antonin
 
-- fonctionnalité 2 : entrée/sortie du labyrinthe
-    - le joueur rentre par l'entrée et peut sortir que par la sortie
-( fonctionnalité reporté, à faire à la prochaine itération )
+
+- fonctionnalité 2 : Vérifier nature d'une case
+- Permet de vérifier si une case est traversable ou non;
+	- mur
+	- vide
+- responsable: ADNET Paul, VIGNERON Steven
+
 
 
 Interface : Interface
 - Le jeu affiche les bonnes informations
 	- Le joueur et le labyrinthe affichent les bonnes informations ;
 	- Le joueur connait son nombre de points de vies à chaque moment ;
-- responsable: ADNET Paul, VIGNERON Steven
+
+- fonctionnalité envisageable : entrée/sortie du labyrinthe
+    - le joueur rentre par l'entrée et peut sortir que par la sortie
