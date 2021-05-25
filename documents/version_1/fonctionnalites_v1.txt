@@ -6,12 +6,15 @@
 	- Il ne peut pas traverser un mur, et peut marcher sur le sol ;
 	- Il ne peut pas sortir du labyrinthe autre part que la sortie ;
 	- Il ne se déplace que d’une case par déplacement ;
+- responsable: ARNOUT Fabrice, Rudoni Antonin
 
 - fonctionnalité 2 : entrée/sortie du labyrinthe
     - le joueur rentre par l'entrée et peut sortir que par la sortie
+( fonctionnalité reporté, à faire à la prochaine itération )
 
 
 Interface : Interface
 - Le jeu affiche les bonnes informations
 	- Le joueur et le labyrinthe affichent les bonnes informations ;
 	- Le joueur connait son nombre de points de vies à chaque moment ;
+- responsable: ADNET Paul, VIGNERON Steven
