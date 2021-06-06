@@ -1,6 +1,6 @@
-<<abstract>> Entité ( Classes Aventurier et Monstre )
+<<abstract>> Entité ( Classes Entites.Aventurier et Entites.Monstre )
 
-<<abstract>> Case (murs, vide, obstacle...)
+<<abstract>> Cases.Case (murs, vide, obstacle...)
 
-Classe Labyrinthe (- cases : ArrayList<Case>)
+Classe Game.Labyrinthe (- cases : ArrayList<Cases.Case>)
 

@@ -1,5 +1,12 @@
 * Fonctionnalités version 1
 
+- fonctionnalité 0 :  Mise en place d'un environnement pour le joueur
+- Création des classes indispensables à la racine du projet
+	- Classe Game.Labyrinthe
+	- Classe Entité
+	- Classe Cases.Case
+responsable : youngboi02 (ADNET Paul), Vigneron Steven
+
 - fonctionnalité 1 : Déplacer le joueur 
 - Gérer correctement les déplacements du joueur
 	- Il peut se déplacer dans les 4 directions ;
@@ -7,14 +14,6 @@
 	- Il ne peut pas sortir du labyrinthe autre part que la sortie ;
 	- Il ne se déplace que d’une case par déplacement ;
 - responsable: ARNOUT Fabrice, Rudoni Antonin
-
-
-- fonctionnalité 2 : Vérifier nature d'une case
-- Permet de vérifier si une case est traversable ou non;
-	- mur
-	- vide
-- responsable: ADNET Paul, VIGNERON Steven
-
 
 
 Interface : Interface
