@@ -48,7 +48,7 @@ public class Labyrinthe {
                 {1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,1,0,1},//17
                 {1,0,1,0,1,1,1,0,1,0,1,0,1,0,1,1,1,0,1,1,1},//18
                 {1,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,1},//19
-                {1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1}};//20; ;
+                {1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1}};//20
         this.cases = new Case[grille.length][grille.length];
         for(int i=0;i<grille.length;i++){
             for (int j=0;j<grille.length;j++){
@@ -83,11 +83,10 @@ public class Labyrinthe {
     }
 
     public void go(){
-        Aventurier av = new Aventurier("denis",100,this,this.getCases()[0][3]);
+        Aventurier av = new Aventurier("denis",100,this,this.getCases()[2][2]);
         this.afficher();
         System.out.println("haut : h\nbas : b\ngauche : g\ndroite : d");
         while(true){
-            boolean valide=false;
             av.move();
             System.out.println();
             this.afficher();
@@ -114,10 +113,11 @@ public class Labyrinthe {
     public ArrayList<Monstre> getMonstres() {
         return monstres;
     }
-/*
+
     public static void main(String[] args) {
-        go();
+        Labyrinthe lab = new Labyrinthe();
+        lab.go();
     }
 
- */
+
 }

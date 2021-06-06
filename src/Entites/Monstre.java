@@ -1,7 +1,7 @@
 package Entites;
 
 import Cases.Case;
-import Game.Labyrinthe;
+import Game.*;
 
 public class Monstre extends Entite {
     private String nom;

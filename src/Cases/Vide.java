@@ -1,7 +1,7 @@
 package Cases;
 
-import Entites.Entite;
-import Game.Labyrinthe;
+import Entites.*;
+import Game.*;
 
 
 public class Vide extends Case {
