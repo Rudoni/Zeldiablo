@@ -31,4 +31,7 @@ public abstract class Entite {
     public abstract void move();
 
 
+    public int getPv() {
+        return pv;
+    }
 }

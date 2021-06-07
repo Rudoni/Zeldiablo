@@ -2,7 +2,8 @@ package Entites;
 
 import Cases.Case;
 import Cases.Vide;
-import Game.*;
+import Game.Labyrinthe;
+import MoteurJeu.Commande;
 
 import java.util.Scanner;
 
@@ -12,6 +13,10 @@ public class Aventurier extends Entite {
         super(s, hp, laby,c);
         c.ajouterEnt(this);
         lab.ajouterAv(this);
+    }
+
+    public void deplacer(Commande commande){
+
     }
 
     @Override
