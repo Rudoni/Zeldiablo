@@ -91,8 +91,6 @@ public class Labyrinthe {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public void ajouterAv(Aventurier av){
@@ -130,7 +128,7 @@ public class Labyrinthe {
             this.afficher();
             System.out.println("haut : z\nbas : s\ngauche : q\ndroite : d");
             while (!(this.fin())) {
-                av.move();
+                av.move(this);
                 System.out.println();
                 this.afficher();
             }

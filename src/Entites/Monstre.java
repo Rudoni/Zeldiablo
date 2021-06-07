@@ -13,7 +13,7 @@ public class Monstre extends Entite {
     }
 
     @Override
-    public void move() {
+    public void move(Labyrinthe lab) {
 
     }
 

@@ -6,14 +6,11 @@ public abstract class Entite {
     protected  String nom;
     protected  int pv;
     protected Case saCase;
-    protected Labyrinthe lab;
-
 
     public Entite(String s, int hp, Labyrinthe laby, Case c){
         if (!(s.equals("")) && (hp>0) && (laby != null)){
             this.nom = s;
             this.pv = hp;
-            this.lab = laby;
             this.saCase = c;
         }
 
@@ -28,7 +25,7 @@ public abstract class Entite {
         }
     }
 
-    public abstract void move();
+    public abstract void move(Labyrinthe lab);
 
     public Case getCase(){
         return saCase;

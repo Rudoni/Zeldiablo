@@ -9,11 +9,10 @@ public class Aventurier extends Entite {
 
     public Aventurier(String s, int hp, Labyrinthe laby, Case c) {
         super(s, hp, laby,c);
-        lab.ajouterAv(this);
     }
 
     @Override
-    public void move() {
+    public void move(Labyrinthe lab) {
         boolean f = false;
         Scanner sc = new Scanner(System.in);
         while (!f){
@@ -61,7 +60,7 @@ public class Aventurier extends Entite {
     }
 
     /* Pour tester le move (on utilise une boucle qui redemande a chaque fois tant que le move n est pas bon) */
-    public void move(String str) {
+    public void move(String str,Labyrinthe lab) {
             String dep = str;
             switch(dep){
                 case("z"):
