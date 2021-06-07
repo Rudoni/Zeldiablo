@@ -125,7 +125,7 @@ public class Labyrinthe {
             Aventurier av = new Aventurier("denis", 100, this, this.start);
             this.afficher();
             System.out.println("haut : z\nbas : s\ngauche : q\ndroite : d");
-            while (true && !(this.fin())) {
+            while (!(this.fin())) {
                 av.move();
                 System.out.println();
                 this.afficher();

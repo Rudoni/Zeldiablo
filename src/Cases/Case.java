@@ -5,8 +5,8 @@ import Entites.*;
 import Game.*;
 
 public abstract class Case {
-    protected Labyrinthe lab;
-    protected  int x,y;
+    private Labyrinthe lab;
+    private  int x,y;
 
     public Case(int x, int y, Labyrinthe laby){
         this.lab = laby;
