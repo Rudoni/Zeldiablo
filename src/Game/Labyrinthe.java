@@ -110,7 +110,7 @@ public class Labyrinthe {
                     if (aCase[j] == this.end) {
                         System.out.print("E  ");
                     } else {
-                        if (((Vide) aCase[j]).isOccupe()) {
+                        if ( this.isOccupe(aCase[j]) ) {
                             System.out.print("O  ");
                         } else {
                             System.out.print("   ");
