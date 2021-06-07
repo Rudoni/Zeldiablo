@@ -6,6 +6,10 @@ import Cases.Vide;
 import Entites.Aventurier;
 import Entites.Monstre;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Labyrinthe {
@@ -44,51 +48,41 @@ public class Labyrinthe {
     }
 
     public Labyrinthe(){
-        int[][] grille = {{1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//0
-                {1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1},//1
-                {1,1,1,0,1,0,1,1,1,1,1,0,1,1,1,1,1,0,1,1,1},//2
-                {1,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1},//3
-                {1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1},//4
-                {1,0,0,0,1,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,1},//5
-                {1,1,1,0,1,1,1,1,1,1,1,0,1,0,1,1,1,0,1,0,1},//6
-                {1,0,1,0,1,0,0,0,0,0,1,0,0,0,1,0,1,0,1,0,1},//7
-                {1,0,1,0,1,0,1,1,1,0,1,0,1,1,1,0,1,1,1,1,1},//8
-                {1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1},//9
-                {1,1,1,1,1,1,1,0,1,0,1,1,1,0,1,0,1,1,1,1,1},//10
-                {1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,1},//11
-                {1,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,0,1,0,1},//12
-                {1,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1},//13
-                {1,0,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1},//14
-                {1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1},//15
-                {1,1,1,1,1,0,1,0,1,1,1,0,1,1,1,0,1,0,1,0,1},//16
-                {1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,1,0,1},//17
-                {1,0,1,0,1,1,1,0,1,0,1,0,1,0,1,1,1,0,1,1,1},//18
-                {1,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,1},//19
-                {1,1,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,1,1}};//20
-        this.cases = new Case[grille.length][grille.length];
-        for(int i=0;i<grille.length;i++){
-            for (int j=0;j<grille.length;j++){
-                switch (grille[i][j]){
-                    case(0):
-                        cases[i][j] = new Vide(i,j,this);
-                        break;
-                    case(1):
-                        cases[i][j] = new Obstacle(i,j,this);
-                        break;
-                    case(2):
-                        Vide start = new Vide(i,j,this);
-                        cases[i][j] = start;
-                        this.start = start;
-                        break;
-                    case(3):
-                        Vide end = new Vide(i,j,this);
-                        cases[i][j] = end ;
-                        this.end = end;
-                        break;
-                }
 
+        try {
+            File f = new File("labyrinthe.txt");
+            BufferedReader in = new BufferedReader(new FileReader(f));
+            String a;
+            int i = 0;
+            while(!((a=in.readLine())==null)) {
+                for (int j = 0; j < a.length(); j++) {
+                    char tmp = a.charAt(j);
+                    switch (tmp){
+                        case('0'):
+                            cases[i][j] = new Vide(i,j,this);
+                            break;
+                        case('1'):
+                            cases[i][j] = new Obstacle(i,j,this);
+                            break;
+                        case('2'):
+                            Vide start = new Vide(i,j,this);
+                            cases[i][j] = start;
+                            this.start = start;
+                            break;
+                        case('3'):
+                            Vide end = new Vide(i,j,this);
+                            cases[i][j] = end ;
+                            this.end = end;
+                            break;
+                    }
+                }
+                i++;
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+
     }
 
     public void ajouterAv(Aventurier av){
@@ -100,13 +94,13 @@ public class Labyrinthe {
     }
 
     public void afficher(){
-        for(int i=0;i<this.cases.length;i++) {
+        for (Case[] aCase : this.cases) {
             for (int j = 0; j < this.cases.length; j++) {
-                if(cases[i][j] instanceof Vide){
-                    if(cases[i][j] == this.end){
+                if (aCase[j] instanceof Vide) {
+                    if (aCase[j] == this.end) {
                         System.out.print("E  ");
-                    }else {
-                        if (((Vide) cases[i][j]).isOccupe()) {
+                    } else {
+                        if (((Vide) aCase[j]).isOccupe()) {
                             System.out.print("O  ");
                         } else {
                             System.out.print("   ");
