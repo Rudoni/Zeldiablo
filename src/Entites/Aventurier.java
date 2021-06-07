@@ -10,7 +10,7 @@ public class Aventurier extends Entite {
 
     public Aventurier(String s, int hp, Labyrinthe laby, Case c) {
         super(s, hp, laby,c);
-        lab.getCases()[1][3].ajouterEnt(this);
+        c.ajouterEnt(this);
         lab.ajouterAv(this);
     }
 
