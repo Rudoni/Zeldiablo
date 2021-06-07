@@ -13,19 +13,17 @@ public class Vide extends Case {
     }
 
     public boolean isOccupe(){
-        if(ent==null){
-            return false;
-        } else {
-            return true;
-        }
+        return ent != null;
     }
 
+    @Override
     public void ajouterEnt(Entite ent){
         if(!this.isOccupe()){
             this.ent = ent;
         }
     }
 
+    @Override
     public void retirerEnt(){
         this.ent = null;
     }
