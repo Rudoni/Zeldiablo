@@ -20,36 +20,16 @@ public class Aventurier extends Entite {
             String dep = sc.nextLine();
             switch(dep){
                 case("z"):
-                    if(lab.getCases()[saCase.getX()-1][saCase.getY()] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()-1][saCase.getY()]))){
-                        saCase = lab.getCases()[saCase.getX()-1][saCase.getY()] ;
-                        f = true;
-                    } else {
-                        System.out.println("case non accessible");
-                    }
+                    f = this.essayerMovement(-1,0,lab);
                     break;
                 case("s"):
-                    if(lab.getCases()[saCase.getX()+1][saCase.getY()] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()+1][saCase.getY()]))){
-                        saCase = lab.getCases()[saCase.getX()+1][saCase.getY()] ;
-                        f = true;
-                    } else {
-                        System.out.println("case non accessible");
-                    }
+                    f = this.essayerMovement(+1,0,lab);
                     break;
                 case("d"):
-                    if(lab.getCases()[saCase.getX()][saCase.getY()+1] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()][saCase.getY()+1]))){
-                        saCase = lab.getCases()[saCase.getX()][saCase.getY()+1] ;
-                        f = true;
-                    } else {
-                        System.out.println("case non accessible");
-                    }
+                    f = this.essayerMovement(0,+1,lab);
                     break;
                 case("q"):
-                    if(lab.getCases()[saCase.getX()][saCase.getY()-1] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()][saCase.getY()-1]))){
-                        saCase = lab.getCases()[saCase.getX()][saCase.getY()-1] ;
-                        f = true;
-                    } else {
-                        System.out.println("case non accessible");
-                    }
+                    f = this.essayerMovement(0,-1,lab);
                     break;
                 default:
                     System.out.println("Veuillez entrer une coordonnée valide :");
@@ -64,32 +44,16 @@ public class Aventurier extends Entite {
             String dep = str;
             switch(dep){
                 case("z"):
-                    if(lab.getCases()[saCase.getX()-1][saCase.getY()] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()-1][saCase.getY()]))){
-                        saCase = lab.getCases()[saCase.getX()-1][saCase.getY()] ;
-                    } else {
-                        System.out.println("case non accessible");
-                    }
+                    this.essayerMovement(-1,0,lab);
                     break;
                 case("s"):
-                    if(lab.getCases()[saCase.getX()+1][saCase.getY()] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()+1][saCase.getY()]))){
-                        saCase = lab.getCases()[saCase.getX()+1][saCase.getY()] ;
-                    } else {
-                        System.out.println("case non accessible");
-                    }
+                    this.essayerMovement(+1,0,lab);
                     break;
                 case("d"):
-                    if(lab.getCases()[saCase.getX()][saCase.getY()+1] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()][saCase.getY()+1]))){
-                        saCase = lab.getCases()[saCase.getX()][saCase.getY()+1] ;
-                    } else {
-                        System.out.println("case non accessible");
-                    }
+                    this.essayerMovement(0,+1,lab);
                     break;
                 case("q"):
-                    if(lab.getCases()[saCase.getX()][saCase.getY()-1] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()][saCase.getY()-1]))s){
-                        saCase = lab.getCases()[saCase.getX()][saCase.getY()-1] ;
-                    } else {
-                        System.out.println("case non accessible");
-                    }
+                    this.essayerMovement(0,-1,lab);
                     break;
                 default:
                     System.out.println("Veuillez entrer une coordonnée valide :");
@@ -97,6 +61,15 @@ public class Aventurier extends Entite {
                     break;
             }
     }
-
-
+    //méthode interne à la classe pour eviter du copier/coller
+    private boolean essayerMovement(int x,int y,Labyrinthe lab){
+        boolean f = false;
+        if(lab.getCases()[saCase.getX()+x][saCase.getY()+y] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()+x][saCase.getY()+y]))){
+            saCase = lab.getCases()[saCase.getX()+x][saCase.getY()+y] ;
+            f = true;
+        } else {
+            System.out.println("case non accessible");
+        }
+        return f;
+    }
 }
