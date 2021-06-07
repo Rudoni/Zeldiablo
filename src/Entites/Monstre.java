@@ -5,7 +5,6 @@ import Game.*;
 
 public class Monstre extends Entite {
     private String nom;
-    private int pv;
     private Case c;
     private Labyrinthe lab;
 
