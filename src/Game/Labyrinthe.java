@@ -21,6 +21,7 @@ public class Labyrinthe {
     private Case end;
 
     public Labyrinthe(int[][] grille){
+        this.monstres = new ArrayList<Monstre>();
         this.cases = new Case[grille.length][grille.length];
         for(int i=0;i<grille.length;i++){
             for (int j=0;j<grille.length;j++){
@@ -49,8 +50,8 @@ public class Labyrinthe {
 
     public boolean isOccupe(Case c){
         boolean f = false;
-        for(int i=0;i<monstres.size();i++){
-            if(monstres.get(i).getCase()==c){
+        for(int i=0;i<this.monstres.size();i++){
+            if(this.monstres.get(i).getCase()==c){
                 f = true;
             }
         }
@@ -58,38 +59,52 @@ public class Labyrinthe {
     }
 
     public Labyrinthe(){
-
-        try {
-            File f = new File("labyrinthe.txt");
-            BufferedReader in = new BufferedReader(new FileReader(f));
-            String a;
-            int i = 0;
-            while(!((a=in.readLine())==null)) {
-                for (int j = 0; j < a.length(); j++) {
-                    char tmp = a.charAt(j);
-                    switch (tmp){
-                        case('0'):
-                            cases[i][j] = new Vide(i,j,this);
-                            break;
-                        case('1'):
-                            cases[i][j] = new Obstacle(i,j,this);
-                            break;
-                        case('2'):
-                            Vide start = new Vide(i,j,this);
-                            cases[i][j] = start;
-                            this.start = start;
-                            break;
-                        case('3'):
-                            Vide end = new Vide(i,j,this);
-                            cases[i][j] = end ;
-                            this.end = end;
-                            break;
-                    }
+        this.monstres = new ArrayList<Monstre>();
+        int[][] grille =
+                {{1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},//0
+                {1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1},//1
+                {1,1,1,0,1,0,1,1,1,1,1,0,1,1,1,1,1,0,1,1,1},//2
+                {1,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1},//3
+                {1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1},//4
+                {1,0,0,0,1,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,1},//5
+                {1,1,1,0,1,1,1,1,1,1,1,0,1,0,1,1,1,0,1,0,1},//6
+                {1,0,1,0,1,0,0,0,0,0,1,0,0,0,1,0,1,0,1,0,1},//7
+                {1,0,1,0,1,0,1,1,1,0,1,0,1,1,1,0,1,1,1,1,1},//8
+                {1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1},//9
+                {1,1,1,1,1,1,1,0,1,0,1,1,1,0,1,0,1,1,1,1,1},//10
+                {1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,1},//11
+                {1,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,0,1,0,1},//12
+                {1,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1},//13
+                {1,0,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1},//14
+                {1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1},//15
+                {1,1,1,1,1,0,1,0,1,1,1,0,1,1,1,0,1,0,1,0,1},//16
+                {1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,1,0,1},//17
+                {1,0,1,0,1,1,1,0,1,0,1,0,1,0,1,1,1,0,1,1,1},//18
+                {1,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,1},//19
+                {1,1,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,1,1}};//20
+        this.cases = new Case[grille.length][grille.length];
+        for(int i=0;i<grille.length;i++){
+            for (int j=0;j<grille.length;j++){
+                switch (grille[i][j]){
+                    case(0):
+                        cases[i][j] = new Vide(i,j,this);
+                        break;
+                    case(1):
+                        cases[i][j] = new Obstacle(i,j,this);
+                        break;
+                    case(2):
+                        Vide start = new Vide(i,j,this);
+                        cases[i][j] = start;
+                        this.start = start;
+                        break;
+                    case(3):
+                        Vide end = new Vide(i,j,this);
+                        cases[i][j] = end ;
+                        this.end = end;
+                        break;
                 }
-                i++;
+
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 

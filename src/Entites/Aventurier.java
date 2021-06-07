@@ -9,6 +9,7 @@ public class Aventurier extends Entite {
 
     public Aventurier(String s, int hp, Labyrinthe laby, Case c) {
         super(s, hp, laby,c);
+        laby.ajouterAv(this);
     }
 
     @Override
@@ -19,16 +20,15 @@ public class Aventurier extends Entite {
             String dep = sc.nextLine();
             switch(dep){
                 case("z"):
-                    if(lab.getCases()[saCase.getX()-1][saCase.getY()] instanceof Vide && lab.isOccupe(lab.getCases()[saCase.getX()-1][saCase.getY()])){
+                    if(lab.getCases()[saCase.getX()-1][saCase.getY()] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()-1][saCase.getY()]))){
                         saCase = lab.getCases()[saCase.getX()-1][saCase.getY()] ;
                         f = true;
                     } else {
                         System.out.println("case non accessible");
                     }
                     break;
-
                 case("s"):
-                    if(lab.getCases()[saCase.getX()+1][saCase.getY()] instanceof Vide && lab.isOccupe(lab.getCases()[saCase.getX()+1][saCase.getY()])){
+                    if(lab.getCases()[saCase.getX()+1][saCase.getY()] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()+1][saCase.getY()]))){
                         saCase = lab.getCases()[saCase.getX()+1][saCase.getY()] ;
                         f = true;
                     } else {
@@ -36,7 +36,7 @@ public class Aventurier extends Entite {
                     }
                     break;
                 case("d"):
-                    if(lab.getCases()[saCase.getX()][saCase.getY()+1] instanceof Vide && lab.isOccupe(lab.getCases()[saCase.getX()][saCase.getY()+1])){
+                    if(lab.getCases()[saCase.getX()][saCase.getY()+1] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()][saCase.getY()+1]))){
                         saCase = lab.getCases()[saCase.getX()][saCase.getY()+1] ;
                         f = true;
                     } else {
@@ -44,7 +44,7 @@ public class Aventurier extends Entite {
                     }
                     break;
                 case("q"):
-                    if(lab.getCases()[saCase.getX()][saCase.getY()-1] instanceof Vide && lab.isOccupe(lab.getCases()[saCase.getX()][saCase.getY()-1])){
+                    if(lab.getCases()[saCase.getX()][saCase.getY()-1] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()][saCase.getY()-1]))){
                         saCase = lab.getCases()[saCase.getX()][saCase.getY()-1] ;
                         f = true;
                     } else {
@@ -64,28 +64,28 @@ public class Aventurier extends Entite {
             String dep = str;
             switch(dep){
                 case("z"):
-                    if(lab.getCases()[saCase.getX()-1][saCase.getY()] instanceof Vide && lab.isOccupe(lab.getCases()[saCase.getX()-1][saCase.getY()])){
+                    if(lab.getCases()[saCase.getX()-1][saCase.getY()] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()-1][saCase.getY()]))){
                         saCase = lab.getCases()[saCase.getX()-1][saCase.getY()] ;
                     } else {
                         System.out.println("case non accessible");
                     }
                     break;
                 case("s"):
-                    if(lab.getCases()[saCase.getX()+1][saCase.getY()] instanceof Vide && lab.isOccupe(lab.getCases()[saCase.getX()+1][saCase.getY()])){
+                    if(lab.getCases()[saCase.getX()+1][saCase.getY()] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()+1][saCase.getY()]))){
                         saCase = lab.getCases()[saCase.getX()+1][saCase.getY()] ;
                     } else {
                         System.out.println("case non accessible");
                     }
                     break;
                 case("d"):
-                    if(lab.getCases()[saCase.getX()][saCase.getY()+1] instanceof Vide && lab.isOccupe(lab.getCases()[saCase.getX()][saCase.getY()+1])){
+                    if(lab.getCases()[saCase.getX()][saCase.getY()+1] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()][saCase.getY()+1]))){
                         saCase = lab.getCases()[saCase.getX()][saCase.getY()+1] ;
                     } else {
                         System.out.println("case non accessible");
                     }
                     break;
                 case("q"):
-                    if(lab.getCases()[saCase.getX()][saCase.getY()-1] instanceof Vide && lab.isOccupe(lab.getCases()[saCase.getX()][saCase.getY()-1])){
+                    if(lab.getCases()[saCase.getX()][saCase.getY()-1] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()][saCase.getY()-1]))s){
                         saCase = lab.getCases()[saCase.getX()][saCase.getY()-1] ;
                     } else {
                         System.out.println("case non accessible");
