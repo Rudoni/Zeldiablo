@@ -123,7 +123,7 @@ public class Labyrinthe {
                     if (aCase[j] == this.end) {
                         System.out.print("E  ");
                     } else {
-                        if ( this.isOccupe(aCase[j]) ) {
+                        if ( aCase[j] == avent.getCase()) {
                             System.out.print("O  ");
                         } else {
                             System.out.print("   ");
