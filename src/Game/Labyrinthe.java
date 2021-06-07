@@ -83,9 +83,9 @@ public class Labyrinthe {
     }
 
     public void go(){
-        Aventurier av = new Aventurier("denis",100,this,this.getCases()[2][2]);
+        Aventurier av = new Aventurier("denis",100,this,this.getCases()[0][3]);
         this.afficher();
-        System.out.println("haut : h\nbas : b\ngauche : g\ndroite : d");
+        System.out.println("haut : z\nbas : s\ngauche : q\ndroite : d");
         while(true){
             av.move();
             System.out.println();
