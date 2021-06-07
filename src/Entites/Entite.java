@@ -30,7 +30,9 @@ public abstract class Entite {
 
     public abstract void move();
 
-
+    public Case getCase(){
+        return saCase;
+    }
     public int getPv() {
         return pv;
     }

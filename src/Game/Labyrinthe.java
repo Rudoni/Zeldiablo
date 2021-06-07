@@ -47,6 +47,16 @@ public class Labyrinthe {
         }
     }
 
+    public boolean isOccupe(Case c){
+        boolean f = false;
+        for(int i=0;i<monstres.size();i++){
+            if(monstres.get(i).getCase()==c){
+                f = true;
+            }
+        }
+        return f;
+    }
+
     public Labyrinthe(){
 
         try {
@@ -130,14 +140,6 @@ public class Labyrinthe {
         }
     }
 
-    public boolean isAccessible(int x, int y){
-        /* if (cases[x][y] instanceof Cases.Obstacle){
-            return false;
-        } else {
-            return true;
-        } */
-        return !(cases[x][y] instanceof Obstacle);
-    }
 
     public Case[][] getCases() {
         return cases;

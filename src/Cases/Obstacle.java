@@ -8,13 +8,4 @@ public class Obstacle extends Case {
         super(x,y,laby);
     }
 
-    @Override
-    public void retirerEnt() {
-
-    }
-
-    @Override
-    public void ajouterEnt(Entite e) {
-
-    }
 }
