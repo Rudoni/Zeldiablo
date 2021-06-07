@@ -3,7 +3,7 @@ package Entites;
 import Cases.Case;
 import Cases.Vide;
 import Game.Labyrinthe;
-import MoteurJeu.Commande;
+import MoteurJeu.*;
 
 import java.util.Scanner;
 

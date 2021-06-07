@@ -136,14 +136,6 @@ public class Labyrinthe {
         }
     }
 
-    public boolean isAccessible(int x, int y){
-        /* if (cases[x][y] instanceof Cases.Obstacle){
-            return false;
-        } else {
-            return true;
-        } */
-        return !(cases[x][y] instanceof Obstacle);
-    }
 
     public Case[][] getCases() {
         return cases;
