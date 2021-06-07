@@ -1,6 +1,4 @@
 package Cases;
-
-
 import Entites.*;
 import Game.*;
 
@@ -14,10 +12,6 @@ public abstract class Case {
         this.y = y;
 
     }
-
-    public abstract void retirerEnt();
-
-    public abstract void ajouterEnt(Entite e);
 
     public int getX() {
         return x;
