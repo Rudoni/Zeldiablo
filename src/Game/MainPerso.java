@@ -3,6 +3,9 @@ package Game;
 import Entites.Personnage;
 import MoteurJeu.Jeu;
 
+/**
+ * Classe principale pour l'utislisateur
+ */
 public class MainPerso {
 
     /**

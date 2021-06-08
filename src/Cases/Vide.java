@@ -7,32 +7,31 @@ package Cases;
 public class Vide extends Case {
 
     /**
-     * boolean occupe
+     * Attribut occupe
      */
-
     private boolean occupe;
+
+    /**
+     * Constructeur d'une case vide
+     * @param x emplacement abscisse
+     * @param y emplacement ordonnee
+     */
     public Vide(int x, int y) {
         super(x,y);
         this.occupe = false;
     }
 
     /**
-     * setter occupe
+     * Setter occupe
      */
-
     public void setOccupe(){
-        if(this.occupe == true){
-            this.occupe = false;
-        }else{
-            this.occupe = true;
-        }
+        this.occupe = !this.occupe;
     }
 
     /**
      * getter occupe
-     * @return boolean
+     * @return si la case est occupee
      */
-
     public boolean estOccupe(){
         return this.occupe;
     }

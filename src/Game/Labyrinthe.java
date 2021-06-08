@@ -14,12 +14,20 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Classe labyrinthe
+ */
 public class Labyrinthe {
-
+    /**
+     * Attributs de type case
+     */
     private Case[][] cases;
     private Case caseDepart;
     private Case caseArrivee;
 
+    /**
+     * Attributs de type personnages
+     */
     private Aventurier aventurier;
     private ArrayList<Monstre> monstres;
 

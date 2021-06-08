@@ -5,16 +5,15 @@ import Entites.Personnage;
 /**
  * classe abstraite case
  */
-
 public abstract class Case {
 
     /**
      * entier coordonnees de la case
      */
-    private  int x,y;
+    private  int x, y;
 
     /**
-     * Personnage ou non de la case
+     * Personnage (ou non) de la case
      */
     Personnage personnage;
 
