@@ -5,6 +5,7 @@ import Cases.Obstacle;
 import Cases.Vide;
 import Entites.Aventurier;
 import Entites.Monstre;
+import MoteurJeu.Commande;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,6 +20,7 @@ public class Labyrinthe {
     private ArrayList<Monstre> monstres;
     private Case start;
     private Case end;
+    private Commande c;
 
     public Labyrinthe(int[][] grille){
         this.monstres = new ArrayList<Monstre>();
@@ -62,6 +64,7 @@ public class Labyrinthe {
     public Labyrinthe(){
         this.monstres = new ArrayList<Monstre>();
         cases = new Case[21][21];
+        c = new Commande();
         try {
             File f = new File("labyrinthe.txt");
             BufferedReader in = new BufferedReader(new FileReader(f));
@@ -131,7 +134,7 @@ public class Labyrinthe {
             this.afficher();
             System.out.println("haut : z\nbas : s\ngauche : q\ndroite : d");
             while (!(this.fin())) {
-                av.move(this);
+                av.move(this, c);
                 System.out.println();
                 this.afficher();
             }

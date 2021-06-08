@@ -5,7 +5,7 @@ import Game.*;
 
 
 public class Vide extends Case {
-    private Entite ent;
+    private Personnage ent;
 
     public Vide(int x, int y, Labyrinthe laby) {
         super(x,y,laby);

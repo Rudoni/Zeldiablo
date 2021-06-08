@@ -1,13 +1,14 @@
 package Entites;
 import Game.*;
 import Cases.*;
+import MoteurJeu.Commande;
 
-public abstract class Entite {
+public abstract class Personnage {
     protected  String nom;
     protected  int pv;
     protected Case saCase;
 
-    public Entite(String s, int hp, Labyrinthe laby, Case c){
+    public Personnage(String s, int hp, Labyrinthe laby, Case c){
         if (!(s.equals("")) && (hp>0) && (laby != null)){
             this.nom = s;
             this.pv = hp;
@@ -25,7 +26,19 @@ public abstract class Entite {
         }
     }
 
-    public abstract void move(Labyrinthe lab);
+    //méthode interne à la classe pour eviter du copier/coller
+    public boolean essayerMovement(int x,int y,Labyrinthe lab){
+        boolean f = false;
+        if(lab.getCases()[saCase.getX()+x][saCase.getY()+y] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()+x][saCase.getY()+y]))){
+            saCase = lab.getCases()[saCase.getX()+x][saCase.getY()+y] ;
+            f = true;
+        } else {
+            System.out.println("case non accessible");
+        }
+        return f;
+    }
+
+    public abstract void move(Labyrinthe lab, Commande c);
 
     public Case getCase(){
         return saCase;
@@ -33,4 +46,5 @@ public abstract class Entite {
     public int getPv() {
         return pv;
     }
+
 }

@@ -3,9 +3,11 @@ package Entites;
 import Cases.Case;
 import Cases.Vide;
 import Game.Labyrinthe;
+import MoteurJeu.Commande;
+
 import java.util.Scanner;
 
-public class Aventurier extends Entite {
+public class Aventurier extends Personnage {
 
     public Aventurier(String s, int hp, Labyrinthe laby, Case c) {
         super(s, hp, laby,c);
@@ -13,9 +15,23 @@ public class Aventurier extends Entite {
     }
 
     @Override
-    public void move(Labyrinthe lab) {
+    public void move(Labyrinthe lab, Commande c) {
         boolean f = false;
-        Scanner sc = new Scanner(System.in);
+        if (c.bas) {
+            f = this.essayerMovement(+1,0,lab);
+        }
+        if (c.haut) {
+            f = this.essayerMovement(-1,0,lab);
+        }
+        if (c.droite) {
+            f = this.essayerMovement(0,+1,lab);
+        }
+        if (c.gauche) {
+            f = this.essayerMovement(0,-1,lab);
+        }
+        /*
+                Scanner sc = new Scanner(System.in);
+
         while (!f){
             String dep = sc.nextLine();
             switch(dep){
@@ -37,6 +53,8 @@ public class Aventurier extends Entite {
                     break;
             }
         }
+
+         */
     }
 
     /* Pour tester le move (on utilise une boucle qui redemande a chaque fois tant que le move n est pas bon) */
@@ -61,15 +79,5 @@ public class Aventurier extends Entite {
                     break;
             }
     }
-    //méthode interne à la classe pour eviter du copier/coller
-    private boolean essayerMovement(int x,int y,Labyrinthe lab){
-        boolean f = false;
-        if(lab.getCases()[saCase.getX()+x][saCase.getY()+y] instanceof Vide && !(lab.isOccupe(lab.getCases()[saCase.getX()+x][saCase.getY()+y]))){
-            saCase = lab.getCases()[saCase.getX()+x][saCase.getY()+y] ;
-            f = true;
-        } else {
-            System.out.println("case non accessible");
-        }
-        return f;
-    }
+
 }

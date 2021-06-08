@@ -2,8 +2,9 @@ package Entites;
 
 import Cases.Case;
 import Game.*;
+import MoteurJeu.Commande;
 
-public class Monstre extends Entite {
+public class Monstre extends Personnage {
     private String nom;
     private Case c;
     private Labyrinthe lab;
@@ -13,7 +14,7 @@ public class Monstre extends Entite {
     }
 
     @Override
-    public void move(Labyrinthe lab) {
+    public void move(Labyrinthe lab, Commande c) {
 
     }
 
