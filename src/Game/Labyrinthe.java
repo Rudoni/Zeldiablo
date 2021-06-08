@@ -84,6 +84,9 @@ public class Labyrinthe {
         }
     }
 
+    /**
+     * Méthode pour afficher le jeu DANS LA CONSOLE
+     */
     public void afficher() {
         for (Case[] aCase : this.cases) {
             for (int j = 0; j < this.cases.length; j++) {
@@ -104,6 +107,7 @@ public class Labyrinthe {
             System.out.println("");
         }
     }
+
     /**
      * Getteur de l'aventurier
      *
@@ -113,10 +117,17 @@ public class Labyrinthe {
         return this.aventurier;
     }
 
+    /**
+     * Getter des cases
+     * @return les cases
+     */
     public Case[][] getCases() {
         return this.cases;
     }
 
+    /**
+     * Méthode pour deplacer l'aventurier DANS LA CONSOLE
+     */
     public void deplacer() {
         Scanner sc = new Scanner(System.in);
         boolean f = false;
@@ -161,7 +172,9 @@ public class Labyrinthe {
         }
     }
 
-    //méthode interne à la classe pour eviter du copier/coller
+    /**
+     * Méthode interne à la classe pour eviter du copier/coller
+     */
     private boolean essayerMovement(int x, int y, Personnage pers) {
         boolean f = false;
         if (this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y] instanceof Vide && !(this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y].estOccupe())) {
@@ -175,6 +188,10 @@ public class Labyrinthe {
         return f;
     }
 
+    /**
+     * Main afin de tester le programme pendant le developpement du projet
+     * @param args
+     */
     public static void main(String[] args) {
         Labyrinthe l = new Labyrinthe("Paul");
         l.afficher();
@@ -184,6 +201,10 @@ public class Labyrinthe {
         }
     }
 
+    /**
+     * Permet de savoir sinon a fini le labyrinthe
+     * @return vrai si on a fini le labyrinthe
+     */
     public boolean etreFini() {
         return this.caseAventurier == this.caseArrivee;
     }

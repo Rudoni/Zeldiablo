@@ -38,10 +38,22 @@ public class JeuPerso implements Jeu {
         this.sorti = labyrinthe.etreFini();
     }
 
+    /**
+     * Revoie faux car le jeu ne fini pas
+     * @return false
+     */
     @Override
     public boolean etreFini() {
         // le jeu n'est jamais fini
         return false;
+    }
+
+    /**
+     * Getter du labyrinthe
+     * @return le labyrinthe
+     */
+    public Labyrinthe getLabyrinthe() {
+        return this.labyrinthe;
     }
 
 }
