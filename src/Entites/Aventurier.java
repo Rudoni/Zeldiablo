@@ -2,8 +2,8 @@ package Entites;
 
 public class Aventurier extends Personnage {
 
-    public Aventurier(String s, int hp) {
-        super(s, hp);
+    public Aventurier(String s) {
+        super(s, 20);
     }
 
     /*

@@ -1,10 +1,16 @@
 package Game;
 
+import Entites.Personnage;
 import MoteurJeu.Jeu;
 
 public class MainPerso {
+
+    /**
+     * Programme principal pour lancer le jeu
+     * @param args arguments du programmes principal (resteront vides)
+     */
     public static void main(String[] args) {
-        Jeu jeu = new JeuPerso();
-        DessinPerso dessin = new DessinPerso((JeuPerso) jeu);
+        Labyrinthe labyrinthe = new Labyrinthe();
+        Personnage aventurier = labyrinthe.getAventurier();
     }
 }

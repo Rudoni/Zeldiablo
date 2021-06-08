@@ -5,6 +5,7 @@ import Cases.Obstacle;
 import Cases.Vide;
 import Entites.Aventurier;
 import Entites.Monstre;
+import Entites.Personnage;
 import MoteurJeu.Commande;
 
 import java.io.BufferedReader;
@@ -14,14 +15,85 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Labyrinthe {
-    private Case[][] cases;
-    //private Cases.Case[][] cases;
-    private Aventurier avent;
-    private ArrayList<Monstre> monstres;
-    private Case start;
-    private Case end;
-    private Commande c;
 
+    private Case[][] cases;
+    private Case caseDepart;
+    private Case caseArrivee;
+
+    private Aventurier aventurier;
+    private ArrayList<Monstre> monstres;
+
+
+    /**
+     * Constructeur de labyrinthe a partir d'un fichier texte
+     */
+    public Labyrinthe() {
+
+        //Instanciation des attributs
+        this.aventurier = new Aventurier("Paul");
+        this.monstres = new ArrayList<Monstre>();
+        this.cases = new Case[21][21];
+
+        //Lecture du fichier texte pour créer le labyrinthe
+        try {
+            //Mise en place d'un reader
+            File f = new File("labyrinthe.txt");
+            BufferedReader in = new BufferedReader(new FileReader(f));
+            String a;
+            int i = 0;
+            //Lecture de chaque lignes du fichier
+            while(!((a=in.readLine())==null)) {
+                for (int j = 0; j < a.length(); j++) {
+                    char tmp = a.charAt(j);
+                    //Identifier le types de cases
+                    switch (tmp){
+                        case('0'):
+                            cases[i][j] = new Vide(i, j);
+                            break;
+                        case('1'):
+                            cases[i][j] = new Obstacle(i, j);
+                            break;
+                        case('2'):
+                            Vide debut = new Vide(i, j);
+                            cases[i][j] = debut;
+                            this.caseDepart = debut;
+                            break;
+                        case('3'):
+                            Vide fin = new Vide(i, j);
+                            cases[i][j] = fin ;
+                            this.caseArrivee = fin;
+                            break;
+                    }
+                }
+                i++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * Permet de déplacer un personnage sur la map
+     * @param p personnage à déplacer
+     * @param x Abscisse où déplacer le perso
+     * @param y Ordonnee où déplacer le perso
+     */
+    public void deplacerPerso(Personnage p, int x, int y) {
+
+        this.cases[x][y].setPersonnage(p);
+    }
+
+    /**
+     * Getteur de l'aventurier
+     * @return l'aventurier
+     */
+    public Aventurier getAventurier() {
+        return this.aventurier;
+    }
+
+
+
+
+    /*
     public Labyrinthe(int[][] grille){
         this.monstres = new ArrayList<Monstre>();
         this.cases = new Case[grille.length][grille.length];
@@ -162,5 +234,8 @@ public class Labyrinthe {
         lab.go();
     }
 
+
+
+     */
 
 }
