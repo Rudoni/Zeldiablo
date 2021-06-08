@@ -1,0 +1,11 @@
+- fonctionnalité  : Cases piégées
+
+- Gérer correctement les cases piégiées
+
+	- Les dégâts ne se déclenchent que lorsque le joueur arrive sur la case, il peut ensuite
+     rester sur cette case aussi longtemps qu'il le souhaite sans subir d'autres dégâts.
+    - Lorsque la case devient à nouveau vide, le piège se réamorce.
+    - (optionnel) Lorsqu'une case a été détectée comme un piège,
+    elle s'affiche différemment dans le labyrinthe (en brun) ce qui permet au joueur d'en tenir compte ensuite.
+
+- responsable: Antonin Rudoni
