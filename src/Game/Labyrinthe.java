@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Classe labyrinthe
@@ -29,8 +30,8 @@ public class Labyrinthe {
      * Attributs de type personnages
      */
     private Aventurier aventurier;
+    private Case caseAventurier;
     private ArrayList<Monstre> monstres;
-
 
     /**
      * Constructeur de labyrinthe a partir d'un fichier texte
@@ -50,25 +51,25 @@ public class Labyrinthe {
             String a;
             int i = 0;
             //Lecture de chaque lignes du fichier
-            while(!((a=in.readLine())==null)) {
+            while (!((a = in.readLine()) == null)) {
                 for (int j = 0; j < a.length(); j++) {
                     char tmp = a.charAt(j);
                     //Identifier le types de cases
-                    switch (tmp){
-                        case('0'):
+                    switch (tmp) {
+                        case ('0'):
                             cases[i][j] = new Vide(i, j);
                             break;
-                        case('1'):
+                        case ('1'):
                             cases[i][j] = new Obstacle(i, j);
                             break;
-                        case('2'):
+                        case ('2'):
                             Vide debut = new Vide(i, j);
                             cases[i][j] = debut;
                             this.caseDepart = debut;
                             break;
-                        case('3'):
+                        case ('3'):
                             Vide fin = new Vide(i, j);
-                            cases[i][j] = fin ;
+                            cases[i][j] = fin;
                             this.caseArrivee = fin;
                             break;
                     }
@@ -79,171 +80,87 @@ public class Labyrinthe {
             e.printStackTrace();
         }
     }
+
     /**
      * Permet de déplacer un personnage sur la map
+     *
      * @param p personnage à déplacer
      * @param x Abscisse où déplacer le perso
      * @param y Ordonnee où déplacer le perso
      */
     public void deplacerPerso(Personnage p, int x, int y) {
-
         this.cases[x][y].setPersonnage(p);
     }
 
     /**
      * Getteur de l'aventurier
+     *
      * @return l'aventurier
      */
     public Aventurier getAventurier() {
         return this.aventurier;
     }
 
+    public Case[][] getCases() {
+        return this.cases;
+    }
 
-
-
-    /*
-    public Labyrinthe(int[][] grille){
-        this.monstres = new ArrayList<Monstre>();
-        this.cases = new Case[grille.length][grille.length];
-        for(int i=0;i<grille.length;i++){
-            for (int j=0;j<grille.length;j++){
-                switch (grille[i][j]){
-                    case(0):
-                        cases[i][j] = new Vide(i,j,this);
-                        break;
-                    case(1):
-                        cases[i][j] = new Obstacle(i,j,this);
-                        break;
-                    case(2):
-                        Vide start = new Vide(i,j,this);
-                        cases[i][j] = start;
-                        this.start = start;
-                        break;
-                    case(3):
-                        Vide end = new Vide(i,j,this);
-                        cases[i][j] = end ;
-                        this.end = end;
-                        break;
-                }
-
+    public void deplacer() {
+        Scanner sc = new Scanner(System.in);
+        String dep = sc.nextLine();
+        boolean f = false;
+        while (!f) {
+            switch (dep) {
+                case ("z"):
+                    f = this.essayerMovement(-1, 0, this.aventurier);
+                    break;
+                case ("s"):
+                    f = this.essayerMovement(+1, 0, this.aventurier);
+                    break;
+                case ("d"):
+                    f = this.essayerMovement(0, +1, this.aventurier);
+                    break;
+                case ("q"):
+                    f = this.essayerMovement(0, -1, this.aventurier);
+                    break;
+                default:
+                    System.out.println("Veuillez entrer une coordonnée valide :");
             }
         }
     }
 
-    public boolean isOccupe(Case c){
-        boolean f = false;
-        for (Monstre monstre : this.monstres) {
-            if (monstre.getCase() == c) {
-                f = true;
+    //POUR LES TESTS DE MOUVEMENTS
+    public void deplacer(String c) {
+        switch (c) {
+            case ("z"):
+                this.essayerMovement(-1, 0, this.aventurier);
                 break;
-            }
+            case ("s"):
+                this.essayerMovement(+1, 0, this.aventurier);
+                break;
+            case ("d"):
+                this.essayerMovement(0, +1, this.aventurier);
+                break;
+            case ("q"):
+                this.essayerMovement(0, -1, this.aventurier);
+                break;
+            default:
+                System.out.println("Veuillez entrer une coordonnée valide :");
+        }
+    }
+
+    //méthode interne à la classe pour eviter du copier/coller
+    private boolean essayerMovement(int x, int y, Personnage pers) {
+        boolean f = false;
+        if (this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y] instanceof Vide && !(this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y].estOccupe())) {
+            this.caseAventurier.retirerPersonnage();
+            this.caseAventurier = this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y];
+            this.caseAventurier.setPersonnage(pers);
+            f = true;
+        } else {
+            System.out.println("case non accessible");
         }
         return f;
     }
-
-    public Labyrinthe(){
-        this.monstres = new ArrayList<Monstre>();
-        cases = new Case[21][21];
-        c = new Commande();
-        try {
-            File f = new File("labyrinthe.txt");
-            BufferedReader in = new BufferedReader(new FileReader(f));
-            String a;
-            int i = 0;
-            while(!((a=in.readLine())==null)) {
-                for (int j = 0; j < a.length(); j++) {
-                    char tmp = a.charAt(j);
-                    switch (tmp){
-                        case('0'):
-                            cases[i][j] = new Vide(i,j,this);
-                            break;
-                        case('1'):
-                            cases[i][j] = new Obstacle(i,j,this);
-                            break;
-                        case('2'):
-                            Vide start = new Vide(i,j,this);
-                            cases[i][j] = start;
-                            this.start = start;
-                            break;
-                        case('3'):
-                            Vide end = new Vide(i,j,this);
-                            cases[i][j] = end ;
-                            this.end = end;
-                            break;
-                    }
-                }
-                i++;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void ajouterAv(Aventurier av){
-        this.avent = av;
-    }
-
-    public boolean fin(){
-        return (avent.getCase()==this.end);
-    }
-
-    public void afficher(){
-        for (Case[] aCase : this.cases) {
-            for (int j = 0; j < this.cases.length; j++) {
-                if (aCase[j] instanceof Vide) {
-                    if (aCase[j] == this.end) {
-                        System.out.print("E  ");
-                    } else {
-                        if ( aCase[j] == avent.getCase()) {
-                            System.out.print("O  ");
-                        } else {
-                            System.out.print("   ");
-                        }
-                    }
-                } else {
-                    System.out.print("X  ");
-                }
-            }
-            System.out.println("");
-        }
-    }
-
-    public void go(){
-        if(this.start!=null && this.end!=null) {
-            Aventurier av = new Aventurier("denis", 100, this, this.start);
-            this.afficher();
-            System.out.println("haut : z\nbas : s\ngauche : q\ndroite : d");
-            while (!(this.fin())) {
-                av.move(this, c);
-                System.out.println();
-                this.afficher();
-            }
-            System.out.println("Bien joué tu es sorti du Labyrinthe !");
-        }else{
-            System.out.println("Le Labyrinthe ne possède pas de case départ et/ou fin");
-        }
-    }
-
-
-    public Case[][] getCases() {
-        return cases;
-    }
-
-    public Aventurier getAvent() {
-        return avent;
-    }
-
-    public ArrayList<Monstre> getMonstres() {
-        return monstres;
-    }
-
-    public static void main(String[] args) {
-        Labyrinthe lab = new Labyrinthe();
-        lab.go();
-    }
-
-
-
-     */
 
 }

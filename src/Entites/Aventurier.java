@@ -12,4 +12,5 @@ public class Aventurier extends Personnage {
     public Aventurier(String s) {
         super(s, 20);
     }
+
 }

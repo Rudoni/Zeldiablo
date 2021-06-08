@@ -6,7 +6,10 @@ import Entites.Personnage;
  * classe abstraite case
  */
 public abstract class Case {
-
+    /**
+     * Attribut occupe
+     */
+    private boolean occupe;
     /**
      * entier coordonnees de la case
      */
@@ -25,6 +28,7 @@ public abstract class Case {
     public Case(int x, int y){
         this.x = x;
         this.y = y;
+        this.occupe = false;
         this.personnage = null;
     }
 
@@ -59,6 +63,28 @@ public abstract class Case {
     public void setPersonnage(Personnage personnage) {
         this.personnage = personnage;
     }
+
+    public void retirerPersonnage(){
+        this.personnage = null;
+    }
+
+    /**
+     * Setter occupe
+     */
+    public void setOccupe(){
+        this.occupe = !this.occupe;
+    }
+
+    /**
+     * getter occupe
+     * @return si la case est occupee
+     */
+    public boolean estOccupe(){
+        return this.occupe;
+    }
+
+
+
 }
 
 
