@@ -1,0 +1,18 @@
+
+- fonctionnalité 3 : Interface graphique
+- Afficher le labyrinthe et le joueur correctement dans un JPanel
+	- Les informations affichées sont correctes et conforme aux classes créées ;
+- responsables: Noé Steiner, Paul Adnet, Rudoni Antonin
+	  
+
+- fonctionnalité 4 : Monstres
+- Ajouter des monstres dans le labyrinthe
+	- Les monstres occupent une case vide
+	- Il n'est pas possible de générer un monstre sur une case vide
+- responsable: Arnout Fabrice
+
+- fonctionnalité 5 : Collision
+- Un Aventurier ne peut pas traverser un Monstre et vice-versa
+	- Un monstre ne peut pas se déplacer dans la direction d'un aventurier et vice-versa
+	- Cela fonctionne dans les 4 directions
+-responsable: Arnout Fabrice
