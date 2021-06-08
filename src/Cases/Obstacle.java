@@ -1,11 +1,17 @@
 package Cases;
 
-import Entites.*;
-import Game.*;
-
+/**
+ * classe obstacle
+ */
 public class Obstacle extends Case {
-    public Obstacle(int x, int y, Labyrinthe laby) {
-        super(x,y,laby);
+
+    /**
+     * constructeur obstacle
+     * @param x abscisse
+     * @param y ordonnee
+     */
+    public Obstacle(int x, int y) {
+        super(x,y);
     }
 
 }

@@ -1,24 +1,45 @@
 package Cases;
-import Entites.*;
-import Game.*;
+
+/**
+ * classe abstraite case
+ */
 
 public abstract class Case {
-    private Labyrinthe lab;
+
+    /**
+     * entier coordonnees de la case
+     */
+
     private  int x,y;
 
-    public Case(int x, int y, Labyrinthe laby){
-        this.lab = laby;
+    /**
+     * constructeur case
+     * @param x abscisse
+     * @param y ordonnee
+     */
+
+    public Case(int x, int y){
         this.x = x;
         this.y = y;
 
     }
 
+    /**
+     * getter x
+     * @return entier x
+     */
+
     public int getX() {
-        return x;
+        return this.x;
     }
 
+    /**
+     * getter y
+     * @return entier y
+     */
+
     public int getY() {
-        return y;
+        return this.y;
     }
 }
 

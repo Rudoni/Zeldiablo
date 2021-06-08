@@ -1,13 +1,42 @@
 package Cases;
 
-import Entites.*;
-import Game.*;
-
+/**
+ * classe vide
+ */
 
 public class Vide extends Case {
-    private Personnage ent;
 
-    public Vide(int x, int y, Labyrinthe laby) {
-        super(x,y,laby);
+    /**
+     * boolean occupe
+     */
+
+    private boolean occupe;
+    public Vide(int x, int y) {
+        super(x,y);
+        this.occupe = false;
     }
+
+    /**
+     * setter occupe
+     */
+
+    public void setOccupe(){
+        if(this.occupe == true){
+            this.occupe = false;
+        }else{
+            this.occupe = true;
+        }
+    }
+
+    /**
+     * getter occupe
+     * @return boolean
+     */
+
+    public boolean estOccupe(){
+        return this.occupe;
+    }
+
+
+
 }
