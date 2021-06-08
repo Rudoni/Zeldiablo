@@ -16,8 +16,8 @@ public class Main {
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         int width = 400;
         int height = 400;
-        dp = new DessinPerso();
         jp = new JeuPerso();
+        dp = new DessinPerso(jp);
         PanelDessin p = new PanelDessin(width, height, dp);
         mg = new MoteurGraphique(new JeuPerso(), dp);
         mg.lancerJeu(width, height);

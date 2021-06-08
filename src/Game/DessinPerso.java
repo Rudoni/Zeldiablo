@@ -9,8 +9,8 @@ public class DessinPerso implements DessinJeu {
     private final int TAILLE = 5;
     private JeuPerso jeu;
 
-    public DessinPerso(){
-
+    public DessinPerso(JeuPerso j){
+        this.jeu = j;
     }
     @Override
     public void dessiner(BufferedImage image) {
