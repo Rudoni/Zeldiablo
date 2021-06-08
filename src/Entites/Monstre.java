@@ -1,24 +1,17 @@
 package Entites;
 
-import Cases.Case;
-import Game.*;
-import MoteurJeu.Commande;
-
 public class Monstre extends Personnage {
-    private String nom;
-    private Case c;
-    private Labyrinthe lab;
 
-    public Monstre(String s, int hp, Labyrinthe laby, Case c) {
-        super(s, hp, laby, c);
+    public Monstre(String s, int hp) {
+        super(s, hp);
     }
-
+    /*
     @Override
     public void move(Labyrinthe lab, Commande c) {
 
     }
 
-    /*
+
     @Override
     // pas d'intérêt de redéfinir pour le moment mais ajout d'autres obstacles par la suite
     public void move(int xMap, int yMap) {

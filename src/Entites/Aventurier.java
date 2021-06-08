@@ -1,19 +1,12 @@
 package Entites;
 
-import Cases.Case;
-import Cases.Vide;
-import Game.Labyrinthe;
-import MoteurJeu.Commande;
-
-import java.util.Scanner;
-
 public class Aventurier extends Personnage {
 
-    public Aventurier(String s, int hp, Labyrinthe laby, Case c) {
-        super(s, hp, laby,c);
-        laby.ajouterAv(this);
+    public Aventurier(String s, int hp) {
+        super(s, hp);
     }
 
+    /*
     @Override
     public void move(Labyrinthe lab, Commande c) {
         boolean f = false;
@@ -55,9 +48,8 @@ public class Aventurier extends Personnage {
         }
 
          */
-    }
 
-    /* Pour tester le move (on utilise une boucle qui redemande a chaque fois tant que le move n est pas bon) */
+    /* Pour tester le move (on utilise une boucle qui redemande a chaque fois tant que le move n est pas bon)
     public void move(String str,Labyrinthe lab) {
             String dep = str;
             switch(dep){
@@ -79,5 +71,7 @@ public class Aventurier extends Personnage {
                     break;
             }
     }
+    */
+
 
 }
