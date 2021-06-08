@@ -15,6 +15,8 @@ responsable : youngboi02 (ADNET Paul), Vigneron Steven
 	- Il ne se déplace que d’une case par déplacement ;
 - responsable: ARNOUT Fabrice, Rudoni Antonin
 
+- fonctionnalité 2 : Générer un labyrinthe a partir d'un fichier
+- responsable : Noé Steiner
 
 Interface : Interface
 - Le jeu affiche les bonnes informations
