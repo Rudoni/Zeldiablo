@@ -13,7 +13,7 @@ responsable : youngboi02 (ADNET Paul), Vigneron Steven
 	- Il ne peut pas traverser un mur, et peut marcher sur le sol ;
 	- Il ne peut pas sortir du labyrinthe autre part que la sortie ;
 	- Il ne se déplace que d’une case par déplacement ;
-- responsable: ARNOUT Fabrice, Rudoni Antonin
+- responsable: Noé Steiner, Paul Adnet, Steven Vigneron
 
 - fonctionnalité 2 : Générer un labyrinthe a partir d'un fichier
 - responsable : Noé Steiner
