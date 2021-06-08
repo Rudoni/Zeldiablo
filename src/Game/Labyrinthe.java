@@ -223,4 +223,8 @@ public class Labyrinthe {
             this.essayerMovement(0, -1, this.aventurier);
         }
     }
+
+    public Case getCaseAventurier(){
+        return this.caseAventurier;
+    }
 }
