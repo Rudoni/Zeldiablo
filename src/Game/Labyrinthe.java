@@ -6,6 +6,7 @@ import Cases.Vide;
 import Entites.Aventurier;
 import Entites.Monstre;
 import Entites.Personnage;
+import MoteurJeu.Commande;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -219,7 +220,7 @@ public class Labyrinthe {
             this.essayerMovement(-1, 0, this.aventurier);
         }
         if (commandeUser.bas) {
-            this.essayerMovement(0, -1, this.aventurier);
+            this.essayerMovement(+1, 0, this.aventurier);
         }
     }
 

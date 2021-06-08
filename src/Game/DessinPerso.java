@@ -1,9 +1,7 @@
 package Game;
 
 import Cases.Case;
-import Cases.Obstacle;
 import Cases.Vide;
-import Entites.Monstre;
 import MoteurJeu.DessinJeu;
 
 import java.awt.*;
@@ -11,7 +9,7 @@ import java.awt.image.BufferedImage;
 
 public class DessinPerso implements DessinJeu {
 
-    private final int TAILLE = 20;
+    private final int TAILLE = 47;
     private JeuPerso jeu;
 
     public DessinPerso(JeuPerso j) {
@@ -26,11 +24,11 @@ public class DessinPerso implements DessinJeu {
         Case[][] c = l.getCases();
         for (int x = 0; x < c.length; x++) {
             for (int y = 0; y < c.length; y++) {
-                if (c[x][y] instanceof Vide){
-                    g.setColor(Color.GRAY);
+                if (c[y][x] instanceof Vide){
+                    g.setColor(new Color(67, 67, 67));
                     g.fillRect(x*TAILLE,y*TAILLE,TAILLE,TAILLE);
                 } else {
-                    g.setColor(Color.GREEN);
+                    g.setColor(new Color(17, 67, 14));
                     g.fillRect(x*TAILLE,y*TAILLE,TAILLE,TAILLE);
                 }
             }
@@ -40,6 +38,7 @@ public class DessinPerso implements DessinJeu {
         // Affichage du joueur
         int xAvent = l.getCaseAventurier().getX();
         int yAvent = l.getCaseAventurier().getY();
-        g.fillOval(xAvent*TAILLE,yAvent*TAILLE,TAILLE,TAILLE);
+        g.setColor(Color.RED);
+        g.fillOval(yAvent*TAILLE,xAvent*TAILLE,TAILLE,TAILLE);
     }
 }
