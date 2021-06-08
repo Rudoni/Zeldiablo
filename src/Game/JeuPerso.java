@@ -1,3 +1,4 @@
+/*
 package Game;
 
 import Entites.Aventurier;
@@ -27,3 +28,4 @@ public class JeuPerso implements Jeu {
     }
 
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package Game;
 
 import MoteurJeu.MoteurGraphique;
@@ -30,3 +31,4 @@ public class Main {
     }
 
 }
+*/

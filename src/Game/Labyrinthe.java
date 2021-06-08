@@ -66,6 +66,8 @@ public class Labyrinthe {
                             Vide debut = new Vide(i, j);
                             cases[i][j] = debut;
                             this.caseDepart = debut;
+                            this.caseAventurier = debut;
+                            this.caseAventurier.setPersonnage(this.aventurier);
                             break;
                         case ('3'):
                             Vide fin = new Vide(i, j);
@@ -81,17 +83,26 @@ public class Labyrinthe {
         }
     }
 
-    /**
-     * Permet de déplacer un personnage sur la map
-     *
-     * @param p personnage à déplacer
-     * @param x Abscisse où déplacer le perso
-     * @param y Ordonnee où déplacer le perso
-     */
-    public void deplacerPerso(Personnage p, int x, int y) {
-        this.cases[x][y].setPersonnage(p);
+    public void afficher() {
+        for (Case[] aCase : this.cases) {
+            for (int j = 0; j < this.cases.length; j++) {
+                if (aCase[j] instanceof Vide) {
+                    if (aCase[j] == this.caseArrivee) {
+                        System.out.print("E  ");
+                    } else {
+                        if (aCase[j] == this.caseAventurier) {
+                            System.out.print("O  ");
+                        } else {
+                            System.out.print("   ");
+                        }
+                    }
+                } else {
+                    System.out.print("X  ");
+                }
+            }
+            System.out.println("");
+        }
     }
-
     /**
      * Getteur de l'aventurier
      *
@@ -107,9 +118,9 @@ public class Labyrinthe {
 
     public void deplacer() {
         Scanner sc = new Scanner(System.in);
-        String dep = sc.nextLine();
         boolean f = false;
         while (!f) {
+            String dep = sc.nextLine();
             switch (dep) {
                 case ("z"):
                     f = this.essayerMovement(-1, 0, this.aventurier);
@@ -163,4 +174,12 @@ public class Labyrinthe {
         return f;
     }
 
+    public static void main(String[] args) {
+        Labyrinthe l = new Labyrinthe();
+        l.afficher();
+        while(true){
+            l.deplacer();
+            l.afficher();
+        }
+    }
 }

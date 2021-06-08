@@ -4,7 +4,7 @@ import MoteurJeu.DessinJeu;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-
+/*
 public class DessinPerso implements DessinJeu {
     private final int TAILLE = 5;
     private JeuPerso jeu;
@@ -20,3 +20,4 @@ public class DessinPerso implements DessinJeu {
         gi.fillOval(x,y,x*TAILLE,y*TAILLE);
     }
 }
+*/
