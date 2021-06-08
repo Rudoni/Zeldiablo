@@ -35,11 +35,12 @@ public class Labyrinthe {
 
     /**
      * Constructeur de labyrinthe a partir d'un fichier texte
+     * @param nom nom de l'aventurier
      */
-    public Labyrinthe() {
+    public Labyrinthe(String nom) {
 
         //Instanciation des attributs
-        this.aventurier = new Aventurier("Paul");
+        this.aventurier = new Aventurier(nom);
         this.monstres = new ArrayList<Monstre>();
         this.cases = new Case[21][21];
 
@@ -175,11 +176,30 @@ public class Labyrinthe {
     }
 
     public static void main(String[] args) {
-        Labyrinthe l = new Labyrinthe();
+        Labyrinthe l = new Labyrinthe("Paul");
         l.afficher();
         while(true){
             l.deplacer();
             l.afficher();
+        }
+    }
+
+    public boolean etreFini() {
+        return this.caseAventurier == this.caseArrivee;
+    }
+
+    public void evoluerAventurier(Commande commandeUser) {
+        if (commandeUser.gauche) {
+            this.essayerMovement(0, -1, this.aventurier);
+        }
+        if (commandeUser.droite) {
+            this.essayerMovement(0, +1, this.aventurier);
+        }
+        if (commandeUser.haut) {
+            this.essayerMovement(-1, 0, this.aventurier);
+        }
+        if (commandeUser.bas) {
+            this.essayerMovement(0, -1, this.aventurier);
         }
     }
 }

@@ -13,7 +13,6 @@ public class MainPerso {
      * @param args arguments du programmes principal (resteront vides)
      */
     public static void main(String[] args) {
-        Labyrinthe labyrinthe = new Labyrinthe();
-        Personnage aventurier = labyrinthe.getAventurier();
+
     }
 }
