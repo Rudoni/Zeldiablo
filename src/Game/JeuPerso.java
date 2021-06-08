@@ -14,24 +14,15 @@ public class JeuPerso implements Jeu {
 
     @Override
     public void evoluer(Commande commandeUser) {
-
+        aventurier.move(lab, commandeUser);
     }
 
     @Override
     public boolean etreFini() {
-        if (aventurier.getPv() == 0) {
-            // afficher à l'écran la mort du perso
-            return true;
-        }
-        /*if (aventurier.getCase() == ){
-            return false;
-        }
-
-         */
         return false;
     }
 
-    public Aventurier getPj() {
+    public Aventurier getAventurier() {
         return aventurier;
     }
 

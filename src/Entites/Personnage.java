@@ -4,9 +4,9 @@ import Cases.*;
 import MoteurJeu.Commande;
 
 public abstract class Personnage {
-    protected  String nom;
-    protected  int pv;
-    protected Case saCase;
+    private  String nom;
+    private  int pv;
+    private Case saCase;
 
     public Personnage(String s, int hp, Labyrinthe laby, Case c){
         if (!(s.equals("")) && (hp>0) && (laby != null)){
