@@ -1,0 +1,34 @@
+--------------------------------------------------------------------------------------------
+        try {
+            File f = new File("labyrinthe.txt");
+            BufferedReader in = new BufferedReader(new FileReader(f));
+            String a;
+            int i = 0;
+            while(!((a=in.readLine())==null)) {
+                for (int j = 0; j < a.length(); j++) {
+                    char tmp = a.charAt(j);
+                    switch (tmp){
+                        case('0'):
+                            cases[i][j] = new Vide(i,j,this);
+                            break;
+                        case('1'):
+                            cases[i][j] = new Obstacle(i,j,this);
+                            break;
+                        case('2'):
+                            Vide start = new Vide(i,j,this);
+                            cases[i][j] = start;
+                            this.start = start;
+                            break;
+                        case('3'):
+                            Vide end = new Vide(i,j,this);
+                            cases[i][j] = end ;
+                            this.end = end;
+                            break;
+                    }
+                }
+                i++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+--------------------------------------------------------------------------------------------
