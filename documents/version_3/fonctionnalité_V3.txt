@@ -22,8 +22,7 @@
 - responsable : Paul Adnet
 
 - fonctionnalité 4: Fin du jeu
-    - Le jeu se termine quand le héros meurt ou qu'il atteint la fin du labyrinthe
-- Acquisition de l'amulette
+    - Le jeu se termine quand le héros meurt ou qu'il atteint la fin du labyrinthe en possédant une amulette
 - responsable Noé Steiner
 
 - fonctionnalité 5: Différents labyrinthes
