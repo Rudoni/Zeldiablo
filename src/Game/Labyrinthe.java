@@ -283,6 +283,12 @@ public class Labyrinthe {
         if (commandeUser.bas) {
             this.essayerMovement(+1, 0, this.aventurier);
         }
+        if (this.caseAventurier.getAmulette()) {
+            this.aventurier.amuletteRecuperee();
+        }
+        if (this.etreFini() && this.aventurier.getAmulette()) {
+            System.out.println("Vous avez gagné ! Passage au niveau suivant");
+        }
     }
 
     public Case getCaseAventurier(){

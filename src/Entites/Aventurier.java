@@ -27,10 +27,18 @@ public class Aventurier extends Personnage {
         }
     }
 
-
+    /**
+     * Met l'amulette a vrai quand le perso la récupère
+     */
     public void amuletteRecuperee() {
         this.amulette = true;
     }
 
-
+    /**
+     * Savoir si le perso a l'amulette
+     * @return vrai si il possède l'amulette
+     */
+    public boolean getAmulette() {
+        return this.amulette;
+    }
 }
