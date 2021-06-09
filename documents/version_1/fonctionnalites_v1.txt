@@ -16,7 +16,7 @@ responsable : youngboi02 (ADNET Paul), Vigneron Steven
 - responsable: Noé Steiner, Paul Adnet, Steven Vigneron
 
 - fonctionnalité 2 : Générer un labyrinthe a partir d'un fichier
-- responsable : Noé Steiner
+- responsable : Noé Steiner, Antonin RUDONI
 
 - fonctionnalité envisageable : entrée/sortie du labyrinthe
     - le joueur rentre par l'entrée et peut sortir que par la sortie

@@ -5,4 +5,4 @@ fonctionnalité 1: Restructuration des classes
 
 fonctionnalité 2: Ajout de l'interface graphique
     - Ajout d'une interface graphique permettant à l'utilisateur d'observer le déplacement de son joueur dans le labyrinthe
-- responsable: Adnet Paul, Vigneron Steven
+- responsable: Adnet Paul, Vigneron Steven, Antonin RUDONI
