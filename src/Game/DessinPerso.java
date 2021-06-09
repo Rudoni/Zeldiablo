@@ -52,7 +52,6 @@ public class DessinPerso implements DessinJeu {
                         //g.fillOval(y*TAILLE,x*TAILLE,TAILLE,TAILLE);
                         g.drawImage(img_amu, x*TAILLE, y*TAILLE, null);
                     }
-
                 } else {
                     g.drawImage(img_mur, x*TAILLE, y*TAILLE, null);
                     //g.setColor(new Color(17, 67, 14));

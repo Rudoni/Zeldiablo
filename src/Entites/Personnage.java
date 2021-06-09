@@ -49,16 +49,16 @@ public abstract class Personnage {
         return this.degats;
     }
 
-    public boolean EtreMort() {
+    public boolean etreMort() {
         return this.getPv() == 0;
     }
 
     public void subirDegat(Personnage p) {
-        if (!this.EtreMort()) {
+        if (!this.etreMort()) {
             int pvActu = this.getPv();
             this.setPv(pvActu -= p.getDegats());
         }
-        if (EtreMort()) {
+        if (etreMort()) {
             System.out.println("Vous etes mort, vous avez perdu");
             System.exit(1);
         }

@@ -5,6 +5,8 @@ package Entites;
  */
 public class Aventurier extends Personnage {
 
+    boolean amulette;
+
     /**
      * Constructeur d'aventurier
      *
@@ -12,6 +14,7 @@ public class Aventurier extends Personnage {
      */
     public Aventurier(String s) {
         super(s, 5, 10);
+        this.amulette = false;
     }
 
     public void subirDegat(int d) {
@@ -22,6 +25,10 @@ public class Aventurier extends Personnage {
             System.out.println("Vous etes mort, vous avez perdu");
             System.exit(1);
         }
+    }
+
+    public void amuletteRecuperee() {
+        this.amulette = true;
     }
 
 

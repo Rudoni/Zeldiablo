@@ -31,4 +31,10 @@ public class Vide extends Case {
     public void faireDegat() {
 
     }
+
+    public void attraperAmulette(){
+        if (this.getPersonnage() != null && this.getAmulette()){
+
+        }
+    }
 }
