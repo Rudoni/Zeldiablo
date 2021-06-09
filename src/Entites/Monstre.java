@@ -10,7 +10,7 @@ public class Monstre extends Personnage {
      * @param s nom du monstre
      */
     public Monstre(String s) {
-        super(s, 10);
+        super(s, 10, 1);
     }
 
 }
