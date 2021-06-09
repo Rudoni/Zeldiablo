@@ -14,4 +14,9 @@ public class Obstacle extends Case {
         super(x,y);
     }
 
+    @Override
+    public void faireDegat() {
+
+    }
+
 }

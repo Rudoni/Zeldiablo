@@ -20,18 +20,6 @@ public abstract class Personnage {
     }
 
     /**
-     * methode qui permet d'attaquer un autre personnage
-     * @param p personnage a attaquer
-     */
-    public abstract void attaquer(Personnage p);
-
-    /**
-     *
-     * @param p personnage victime
-     */
-    public abstract void subirDegat(Personnage p);
-
-    /**
      * Getter du nom
      * @return le nom du personnage
      */
@@ -59,5 +47,29 @@ public abstract class Personnage {
      */
     public int getDegats() {
         return this.degats;
+    }
+
+    public boolean EtreMort() {
+        return this.getPv() == 0;
+    }
+
+    public void subirDegat(Personnage p) {
+        if (!this.EtreMort()) {
+            int pvActu = this.getPv();
+            this.setPv(pvActu -= p.getDegats());
+        }
+        if (EtreMort()) {
+            System.out.println("Vous etes mort, vous avez perdu");
+            System.exit(1);
+        }
+    }
+
+    public abstract void subirDegat(int d);
+
+
+    public void attaquer(Personnage p) {
+        if (p != null){
+            p.subirDegat(this);
+        }
     }
 }

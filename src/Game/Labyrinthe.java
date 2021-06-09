@@ -187,6 +187,9 @@ public class Labyrinthe {
             this.caseAventurier.retirerPersonnage();
             this.caseAventurier = this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y];
             this.caseAventurier.setPersonnage(pers);
+            if(pers instanceof Aventurier) {
+                this.caseAventurier.faireDegat();
+            }
             f = true;
         } else {
             System.out.println("case non accessible");

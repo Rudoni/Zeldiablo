@@ -22,4 +22,9 @@ public class Monstre extends Personnage {
     public void subirDegat(Personnage p) {
 
     }
+
+    @Override
+    public void subirDegat(int d) {
+
+    }
 }
