@@ -1,27 +1,17 @@
-/*
+
 package Tests;
 
 import Entites.Aventurier;
 import Game.*;
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class TestAventurier {
-    private int[][] tabTest = {
-        {1,1,1,1,1},
-        {1,0,0,0,1},
-        {1,0,0,0,1},
-        {1,0,0,0,1},
-        {1,1,1,1,1}
-    };
-    private Labyrinthe lab = new Labyrinthe(tabTest);
+    private Labyrinthe lab = new Labyrinthe("Testeur","Test");
 
     @Test
     public void testMoveHautOK(){
-        Aventurier av = new Aventurier("denis",100,lab,lab.getCases()[2][2]);
-        av.move("z",lab);
-        assertEquals("Devrait se trouver en x:2 y:1",lab.getCases()[1][2],av.getCase());
+        lab.deplacer("z");
+        assertEquals("Devrait se trouver en x:2 y:1",lab.getCases()[1][2],lab.getCaseAventurier());
     }
 
     @Test
@@ -52,4 +42,3 @@ public class TestAventurier {
         assertEquals("Devrait se trouver en x:3 y:1",lab.getCases()[1][3],av.getCase());
     }
 }
-*/

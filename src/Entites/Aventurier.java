@@ -27,6 +27,7 @@ public class Aventurier extends Personnage {
         }
     }
 
+
     public void amuletteRecuperee() {
         this.amulette = true;
     }
