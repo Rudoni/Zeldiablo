@@ -1,8 +1,5 @@
 package Cases;
 
-import Entites.Aventurier;
-import Entites.Personnage;
-
 /**
  * classe obstacle
  */
@@ -32,5 +29,15 @@ public class Piege extends Case {
         this.personnage.subirDegat(1);
         this.desactivePiege();
         System.out.println(this.personnage.getPv());
+    }
+
+    @Override
+    public boolean getAmulette() {
+        return false;
+    }
+
+    @Override
+    public void retirerAmulette() {
+
     }
 }

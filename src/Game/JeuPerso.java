@@ -1,6 +1,5 @@
 package Game;
 
-import Entites.Personnage;
 import MoteurJeu.Commande;
 import MoteurJeu.Jeu;
 
@@ -35,6 +34,9 @@ public class JeuPerso implements Jeu {
     @Override
     public void evoluer(Commande commandeUser) {
         labyrinthe.evoluerAventurier(commandeUser);
+        if (labyrinthe.getCaseAventurier().getAmulette()){
+            labyrinthe.getCaseAventurier().retirerAmulette();
+        }
         this.sorti = labyrinthe.etreFini();
     }
 

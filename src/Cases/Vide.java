@@ -1,5 +1,7 @@
 package Cases;
 
+import Entites.Aventurier;
+
 /**
  * classe vide
  */
@@ -28,13 +30,18 @@ public class Vide extends Case {
     }
 
     @Override
+    public void retirerAmulette() {
+        if (this.getPersonnage() instanceof Aventurier && this.getAmulette()){
+            amulette = false;
+        }
+    }
+
+    @Override
     public void faireDegat() {
 
     }
 
-    public void attraperAmulette(){
-        if (this.getPersonnage() != null && this.getAmulette()){
 
-        }
-    }
+
+
 }

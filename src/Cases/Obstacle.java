@@ -19,4 +19,14 @@ public class Obstacle extends Case {
 
     }
 
+    @Override
+    public boolean getAmulette() {
+        return false;
+    }
+
+    @Override
+    public void retirerAmulette() {
+
+    }
+
 }

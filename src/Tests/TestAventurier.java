@@ -1,4 +1,4 @@
-
+/*
 package Tests;
 
 import Entites.Aventurier;
@@ -42,3 +42,5 @@ public class TestAventurier {
         assertEquals("Devrait se trouver en x:3 y:1",lab.getCases()[1][3],av.getCase());
     }
 }
+
+ */

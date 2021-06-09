@@ -1,6 +1,9 @@
 package Game;
 
-import Cases.*;
+import Cases.Case;
+import Cases.Obstacle;
+import Cases.Piege;
+import Cases.Vide;
 import MoteurJeu.DessinJeu;
 
 import javax.imageio.ImageIO;
@@ -48,7 +51,10 @@ public class DessinPerso implements DessinJeu {
                         if (((Vide) c[y][x]).getAmulette()) {
                             //g.fillOval(y*TAILLE,x*TAILLE,TAILLE,TAILLE);
                             g.drawImage(img_amu, x * TAILLE, y * TAILLE, null);
+                        } else {
+                            ((Vide) c[y][x]).retirerAmulette();
                         }
+
                     }
                     if (c[y][x] instanceof Piege) {
                         g.drawImage(img_piege, x * TAILLE, y * TAILLE, null);

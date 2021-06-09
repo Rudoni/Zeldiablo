@@ -85,6 +85,10 @@ public abstract class Case {
 
 
     public abstract void faireDegat();
+
+    public abstract boolean getAmulette();
+
+    public abstract void retirerAmulette();
 }
 
 
