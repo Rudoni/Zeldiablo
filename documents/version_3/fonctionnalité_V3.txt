@@ -21,3 +21,6 @@
 
 - Création de fichiers Labyrinthe afin d'avoir plusieurs map à disposition
 - responsable: Antonin Rudoni
+
+- Collision: chaque objet de type personnage ne peut pas se traverser
+- responsable: Fabrice Arnout
