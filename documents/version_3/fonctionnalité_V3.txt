@@ -10,7 +10,7 @@
 - responsable: Antonin Rudoni
 
 - Coder un monstre pour le labyrinthe
-- responsable : Steven Vigneron
+- responsable : Steven Vigneron, Fabrice Arnout
 
 - Fonction attaquer et subir dégâts entre personnages
 (mise en place de HP, de points de dégâts rayon d'attaque d'une case)
@@ -21,3 +21,4 @@
 
 - Création de fichiers Labyrinthe afin d'avoir plusieurs map à disposition
 - responsable: Antonin Rudoni
+
