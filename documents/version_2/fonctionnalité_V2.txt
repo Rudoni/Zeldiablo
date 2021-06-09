@@ -1,4 +1,8 @@
 
-Restructuration des classes + implémentation graphique
-
+fonctionnalité 1: Restructuration des classes
+    - Nous avions un mauvaise conception donc nous avons dû restructurer notre Diagramme de Classe
 - responsables: Arnout Fabrice, Steiner Noé, Rudoni Antonin
+
+fonctionnalité 2: Ajout de l'interface graphique
+    - Ajout d'une interface graphique permettant à l'utilisateur d'observer le déplacement de son joueur dans le labyrinthe
+- responsable: Adnet Paul, Vigneron Steven, Antonin RUDONI
