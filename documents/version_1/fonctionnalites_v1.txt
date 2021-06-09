@@ -18,10 +18,5 @@ responsable : youngboi02 (ADNET Paul), Vigneron Steven
 - fonctionnalité 2 : Générer un labyrinthe a partir d'un fichier
 - responsable : Noé Steiner
 
-Interface : Interface
-- Le jeu affiche les bonnes informations
-	- Le joueur et le labyrinthe affichent les bonnes informations ;
-	- Le joueur connait son nombre de points de vies à chaque moment ;
-
 - fonctionnalité envisageable : entrée/sortie du labyrinthe
     - le joueur rentre par l'entrée et peut sortir que par la sortie
