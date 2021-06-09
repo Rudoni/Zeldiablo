@@ -56,9 +56,9 @@ public abstract class Personnage {
     public void subirDegat(Personnage p) {
         if (!this.etreMort()) {
             int pvActu = this.getPv();
-            this.setPv(pvActu -= p.getDegats());
-        }
-        if (etreMort()) {
+            int degats = pvActu - p.getDegats();
+            this.setPv(degats);
+        } else {
             System.out.println("Vous etes mort, vous avez perdu");
             System.exit(1);
         }
