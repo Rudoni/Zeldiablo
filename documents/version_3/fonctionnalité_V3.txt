@@ -1,4 +1,4 @@
-- fonctionnalité  : Cases piégées
+- fonctionnalité  1: Cases piégées
 
 - Gérer correctement les cases piégées
 
@@ -9,17 +9,30 @@
     elle s'affiche différemment dans le labyrinthe (en brun) ce qui permet au joueur d'en tenir compte ensuite.
 - responsable: Antonin Rudoni
 
-- Coder un monstre pour le labyrinthe
+
+- fonctionnalité 2: Monstre
+    - Coder un monstre pour le labyrinthe
 - responsable : Steven Vigneron, Fabrice Arnout
 
-- Fonction attaquer et subir dégâts entre personnages
-(mise en place de HP, de points de dégâts rayon d'attaque d'une case)
+- fonctionnalité 3: Attaque et Subir des degats
+    - Gestion des points de vie
+    - Attribution des points de degats
+    - Vérifier si la victime d'une attaque est pas nul
+    - Un personnage prend le bon nombre de degats par attaque
 - responsable : Paul Adnet
 
-- Fin du jeu : mort du héros
+- fonctionnalité 4: Fin du jeu
+    - Le jeu se termine quand le héros meurt ou qu'il atteint la fin du labyrinthe
 - Acquisition de l'amulette
 - responsable Noé Steiner
 
-- Création de fichiers Labyrinthe afin d'avoir plusieurs map à disposition
+- fonctionnalité 5: Différents labyrinthes
+    - Création de fichiers Labyrinthe afin d'avoir plusieurs map à disposition
 - responsable: Antonin Rudoni
+
+- fonctionnalité 6: Création et récupération de l'amulette
+    - Ajout de l'amulette dans l'interface graphique
+    - Attribut amulette pour Aventurier et Vide,
+- responsable : Noé Steiner, Adnet Paul
+
 
