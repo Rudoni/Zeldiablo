@@ -2,6 +2,7 @@ package Game;
 
 import Cases.Case;
 import Cases.Obstacle;
+import Cases.Piege;
 import Cases.Vide;
 import Entites.Aventurier;
 import Entites.Monstre;
@@ -74,6 +75,9 @@ public class Labyrinthe {
                             Vide fin = new Vide(i, j);
                             cases[i][j] = fin;
                             this.caseArrivee = fin;
+                            break;
+                        case ('4'):
+                            cases[i][j] = new Piege(i, j);
                             break;
                     }
                 }
@@ -177,7 +181,7 @@ public class Labyrinthe {
      */
     private boolean essayerMovement(int x, int y, Personnage pers) {
         boolean f = false;
-        if (this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y] instanceof Vide && !(this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y].estOccupe())) {
+        if (!(this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y] instanceof Obstacle) && !(this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y].estOccupe())) {
             this.caseAventurier.retirerPersonnage();
             this.caseAventurier = this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y];
             this.caseAventurier.setPersonnage(pers);

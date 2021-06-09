@@ -26,7 +26,7 @@ public class Aventurier extends Personnage {
      */
     public void subirDegat(Personnage p) {
         if (!this.AventurierEtreMort()) {
-            int pvActu = p.getPv();
+            int pvActu = this.getPv();
             this.setPv(pvActu -= p.getDegats());
         }
         if (AventurierEtreMort()) {
@@ -34,6 +34,8 @@ public class Aventurier extends Personnage {
             System.exit(1);
         }
     }
+
+
 
 
 }
