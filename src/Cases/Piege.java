@@ -28,5 +28,6 @@ public class Piege extends Case {
         if(this.personnage != null){
             pv = this.personnage.getPv() - 1;
         }
+        this.personnage.setPv(pv);
     }
 }
