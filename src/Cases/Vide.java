@@ -26,4 +26,9 @@ public class Vide extends Case {
     public boolean getAmulette() {
         return this.amulette;
     }
+
+    @Override
+    public void faireDegat() {
+
+    }
 }

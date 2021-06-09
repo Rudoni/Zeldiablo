@@ -1,5 +1,6 @@
 package Cases;
 
+import Entites.Aventurier;
 import Entites.Personnage;
 
 /**
@@ -23,11 +24,13 @@ public class Piege extends Case {
         this.active = false;
     }
 
+    public boolean getActive(){
+        return this.active;
+    }
+
     public void faireDegat(){
-        int pv = 0;
-        if(this.personnage != null){
-            pv = this.personnage.getPv() - 1;
-        }
-        this.personnage.setPv(pv);
+        this.personnage.subirDegat(1);
+        this.desactivePiege();
+        System.out.println(this.personnage.getPv());
     }
 }

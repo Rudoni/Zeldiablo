@@ -84,7 +84,7 @@ public abstract class Case {
     }
 
 
-
+    public abstract void faireDegat();
 }
 
 
