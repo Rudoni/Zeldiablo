@@ -18,14 +18,15 @@ public class Aventurier extends Personnage {
     }
 
     public void subirDegat(int d) {
-        if (!this.EtreMort()) {
+        if (!this.etreMort()) {
             this.setPv(this.getPv() - d);
         }
-        if (EtreMort()) {
+        if (etreMort()) {
             System.out.println("Vous etes mort, vous avez perdu");
             System.exit(1);
         }
     }
+
 
     public void amuletteRecuperee() {
         this.amulette = true;

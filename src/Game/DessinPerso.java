@@ -1,7 +1,6 @@
 package Game;
 
-import Cases.Case;
-import Cases.Vide;
+import Cases.*;
 import MoteurJeu.DessinJeu;
 
 import javax.imageio.ImageIO;
@@ -14,10 +13,7 @@ public class DessinPerso implements DessinJeu {
 
     private final int TAILLE = 47;
     private JeuPerso jeu;
-    private Image img_aventurier;
-    private Image img_sol;
-    private Image img_mur;
-    private Image img_amu;
+    private Image img_aventurier,img_sol,img_mur,img_amu,img_piege;
 
     public DessinPerso(JeuPerso j) {
         this.jeu = j;
@@ -31,6 +27,7 @@ public class DessinPerso implements DessinJeu {
             img_mur = ImageIO.read(new File(".\\src\\Images\\GrayWalls.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
             img_sol = ImageIO.read(new File(".\\src\\Images\\grass.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
             img_amu = ImageIO.read(new File(".\\src\\Images\\amulette.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
+            img_piege = ImageIO.read(new File(".\\src\\Images\\piege.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
         } catch (IOException ex) {
             System.out.println("Erreur : Chargement des images");
         }
@@ -43,14 +40,18 @@ public class DessinPerso implements DessinJeu {
         Case[][] c = l.getCases();
         for (int x = 0; x < c.length; x++) {
             for (int y = 0; y < c.length; y++) {
-                if (c[y][x] instanceof Vide){
+                if (!(c[y][x] instanceof Obstacle)){
                     g.drawImage(img_sol, x*TAILLE, y*TAILLE, null);
                     //g.setColor(new Color(67, 67, 67));
                     //g.fillRect(x*TAILLE,y*TAILLE,TAILLE,TAILLE);
-                    if (((Vide) c[y][x]).getAmulette()) {
-                        g.setColor(Color.YELLOW);
-                        //g.fillOval(y*TAILLE,x*TAILLE,TAILLE,TAILLE);
-                        g.drawImage(img_amu, x*TAILLE, y*TAILLE, null);
+                    if(c[y][x] instanceof Vide) {
+                        if (((Vide) c[y][x]).getAmulette()) {
+                            //g.fillOval(y*TAILLE,x*TAILLE,TAILLE,TAILLE);
+                            g.drawImage(img_amu, x * TAILLE, y * TAILLE, null);
+                        }
+                    }
+                    if (c[y][x] instanceof Piege) {
+                        g.drawImage(img_piege, x * TAILLE, y * TAILLE, null);
                     }
                 } else {
                     g.drawImage(img_mur, x*TAILLE, y*TAILLE, null);
