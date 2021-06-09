@@ -18,10 +18,18 @@ public class DessinPerso implements DessinJeu {
     private JeuPerso jeu;
     private Image img_aventurier,img_sol,img_mur,img_amu,img_piege;
 
+    /**
+     * Constructeur de Dessin
+     * @param j jeu
+     */
     public DessinPerso(JeuPerso j) {
         this.jeu = j;
     }
 
+    /**
+     * Definit ce qui est affiche a l'ecran
+     * @param image bufferedImage
+     */
     @Override
     public void dessiner(BufferedImage image) {
         //Chargement des images
@@ -48,11 +56,11 @@ public class DessinPerso implements DessinJeu {
                     //g.setColor(new Color(67, 67, 67));
                     //g.fillRect(x*TAILLE,y*TAILLE,TAILLE,TAILLE);
                     if(c[y][x] instanceof Vide) {
-                        if (((Vide) c[y][x]).getAmulette()) {
+                        if ((c[y][x]).getAmulette()) {
                             //g.fillOval(y*TAILLE,x*TAILLE,TAILLE,TAILLE);
                             g.drawImage(img_amu, x * TAILLE, y * TAILLE, null);
                         } else {
-                            ((Vide) c[y][x]).retirerAmulette();
+                            (c[y][x]).retirerAmulette();
                         }
 
                     }

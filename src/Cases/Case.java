@@ -84,8 +84,15 @@ public abstract class Case {
     }
 
 
+    /**
+     * Methode qui permet a une case d'infliger des dégats
+     */
     public abstract void faireDegat();
 
+    /**
+     * Permet de
+     * @return
+     */
     public abstract boolean getAmulette();
 
     public abstract void retirerAmulette();

@@ -3,11 +3,14 @@ package Cases;
 import Entites.Aventurier;
 
 /**
- * classe vide
+ * classe de case vide
  */
 
 public class Vide extends Case {
 
+    /**
+     * Attribut permettant de savoir si la case est la case ou se trouve l'amulette
+     */
     private boolean amulette;
 
     /**
@@ -25,10 +28,14 @@ public class Vide extends Case {
      * savoir si l'amulette est sur la case
      * @return vrai si l'amulette est sur la case
      */
+    @Override
     public boolean getAmulette() {
         return this.amulette;
     }
 
+    /**
+     * Permet de retirer l'amulette
+     */
     @Override
     public void retirerAmulette() {
         if (this.getPersonnage() instanceof Aventurier && this.getAmulette()){
@@ -36,6 +43,9 @@ public class Vide extends Case {
         }
     }
 
+    /**
+     * Permet a la case d'infliger des degats
+     */
     @Override
     public void faireDegat() {
 

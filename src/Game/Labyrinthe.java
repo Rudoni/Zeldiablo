@@ -90,7 +90,12 @@ public class Labyrinthe {
         }
     }
 
-    public Labyrinthe(String nom,String nom_txt) {
+    /**
+     * Constructeur de labyrinthe
+     * @param nom nom de l'aventurier qui va y évoluer
+     * @param nom_txt nom du txt contenant le labyrinthe a générer
+     */
+    public Labyrinthe(String nom, String nom_txt) {
 
         //Instanciation des attributs
         this.aventurier = new Aventurier(nom);
@@ -168,7 +173,6 @@ public class Labyrinthe {
 
     /**
      * Getteur de l'aventurier
-     *
      * @return l'aventurier
      */
     public Aventurier getAventurier() {
@@ -210,6 +214,10 @@ public class Labyrinthe {
         }
     }
 
+    /**
+     * Methode qui sert a se délacer dans la version console du jeu
+     * @param c commande entrée (z q s d)
+     */
     //POUR LES TESTS DE MOUVEMENTS
     public void deplacer(String c) {
         switch (c) {
@@ -270,6 +278,10 @@ public class Labyrinthe {
         return this.caseAventurier == this.caseArrivee;
     }
 
+    /**
+     * permet de faire évoluer un aventurier
+     * @param commandeUser commandes entrées par l'utilisateur
+     */
     public void evoluerAventurier(Commande commandeUser) {
         if (commandeUser.gauche) {
             this.essayerMovement(0, -1, this.aventurier);
@@ -291,6 +303,10 @@ public class Labyrinthe {
         }
     }
 
+    /**
+     * Obtenir la case ou se trouve actuellement l'aventurier
+     * @return la case de l'aventurier
+     */
     public Case getCaseAventurier(){
         return this.caseAventurier;
     }
