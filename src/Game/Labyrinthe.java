@@ -47,7 +47,7 @@ public class Labyrinthe {
         //Lecture du fichier texte pour créer le labyrinthe
         try {
             //Mise en place d'un reader
-            File f = new File("labyrinthe.txt");
+            File f = new File("src/Labyrinthes/labyrinthe.txt");
             BufferedReader in = new BufferedReader(new FileReader(f));
             String a;
             int i = 0;
