@@ -7,7 +7,6 @@ public class Aventurier extends Personnage {
 
     /**
      * Constructeur d'aventurier
-     *
      * @param s nom de l'aventurier
      */
     public Aventurier(String s) {
@@ -30,7 +29,7 @@ public class Aventurier extends Personnage {
             int pvActu = this.getPv();
             this.setPv(pvActu -= p.getDegats());
         }
-        if (AventurierEtreMort()) {
+        if (this.AventurierEtreMort()) {
             System.out.println("Vous etes mort, vous avez perdu");
             System.exit(1);
         }

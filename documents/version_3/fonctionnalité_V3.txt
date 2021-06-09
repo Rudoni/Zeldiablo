@@ -17,6 +17,7 @@
 - responsable : Paul Adnet
 
 - Fin du jeu : mort du héros
+- Acquisition de l'amulette
 - responsable Noé Steiner
 
 - Création de fichiers Labyrinthe afin d'avoir plusieurs map à disposition

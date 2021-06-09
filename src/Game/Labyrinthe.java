@@ -59,26 +59,28 @@ public class Labyrinthe {
                     //Identifier le types de cases
                     switch (tmp) {
                         case ('0'):
-                            cases[i][j] = new Vide(i, j);
+                            cases[i][j] = new Vide(i, j, false);
                             break;
                         case ('1'):
                             cases[i][j] = new Obstacle(i, j);
                             break;
                         case ('2'):
-                            Vide debut = new Vide(i, j);
+                            Vide debut = new Vide(i, j, false);
                             cases[i][j] = debut;
                             this.caseDepart = debut;
                             this.caseAventurier = debut;
                             this.caseAventurier.setPersonnage(this.aventurier);
                             break;
                         case ('3'):
-                            Vide fin = new Vide(i, j);
+                            Vide fin = new Vide(i, j, false);
                             cases[i][j] = fin;
                             this.caseArrivee = fin;
                             break;
                         case ('4'):
                             cases[i][j] = new Piege(i, j);
                             break;
+                        case ('9'):
+                            cases[i][j] = new Vide(i, j, true);
                     }
                 }
                 i++;
