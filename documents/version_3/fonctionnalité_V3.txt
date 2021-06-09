@@ -12,7 +12,8 @@
 - Coder un monstre pour le labyrinthe
 - responsable : Steven Vigneron
 
-- Fonction attaquer et subir dégâts entre personneages
+- Fonction attaquer et subir dégâts entre personnages
+(mise en place de HP, de points de dégâts rayon d'attaque d'une case)
 - responsable : Paul Adnet
 
 - Fin du jeu : mort du héros
