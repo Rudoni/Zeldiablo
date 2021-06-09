@@ -20,6 +20,18 @@ public abstract class Personnage {
     }
 
     /**
+     * methode qui permet d'attaquer un autre personnage
+     * @param p personnage a attaquer
+     */
+    public abstract void attaquer(Personnage p);
+
+    /**
+     *
+     * @param p personnage victime
+     */
+    public abstract void subirDegat(Personnage p);
+
+    /**
      * Getter du nom
      * @return le nom du personnage
      */

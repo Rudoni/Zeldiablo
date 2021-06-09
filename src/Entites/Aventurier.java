@@ -7,6 +7,7 @@ public class Aventurier extends Personnage {
 
     /**
      * Constructeur d'aventurier
+     *
      * @param s nom de l'aventurier
      */
     public Aventurier(String s) {
@@ -22,11 +23,11 @@ public class Aventurier extends Personnage {
     }
 
     /**
-     * Faire subir des dégats a un aventurier
+     * Faire subir des degats a un aventurier
      */
     public void subirDegat(Personnage p) {
         if (!this.AventurierEtreMort()) {
-            int pvActu = p.getPv();
+            int pvActu = this.getPv();
             this.setPv(pvActu -= p.getDegats());
         }
         if (AventurierEtreMort()) {
@@ -35,5 +36,12 @@ public class Aventurier extends Personnage {
         }
     }
 
+
+    @Override
+    public void attaquer(Personnage p) {
+        if (p != null){
+            p.subirDegat(this);
+        }
+    }
 
 }
