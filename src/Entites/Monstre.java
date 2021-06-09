@@ -13,4 +13,13 @@ public class Monstre extends Personnage {
         super(s, 10, 1);
     }
 
+    @Override
+    public void attaquer(Personnage p) {
+
+    }
+
+    @Override
+    public void subirDegat(Personnage p) {
+
+    }
 }
