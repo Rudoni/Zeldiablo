@@ -14,6 +14,8 @@ import java.util.ArrayList;
 public class DessinPerso implements DessinJeu {
 
     private final int TAILLE = 47;
+    private final int VIEJOUEUR = 5;
+    private final int VIETROLL = 3;
     private JeuPerso jeu;
     private Image img_aventurier, img_sol, img_mur, img_amu, img_piege, img_troll, img_fantome;
 
@@ -57,8 +59,6 @@ public class DessinPerso implements DessinJeu {
 
         for (int x = 0; x < c.length; x++) {
             for (int y = 0; y < c.length; y++) {
-
-
                 if (!(c[y][x] instanceof Obstacle)) {
                     g.drawImage(img_sol, x * TAILLE, y * TAILLE, null);
                     //g.setColor(new Color(67, 67, 67));
@@ -86,6 +86,7 @@ public class DessinPerso implements DessinJeu {
                 int y_m = c_monstre.get(i).getY();
                 if (monstre.get(i) instanceof Troll) {
                     g.drawImage(img_troll, y_m * TAILLE, x_m * TAILLE, null);
+                    BarVie(g,x_m,y_m,monstre.get(i),3);
                 } else {
                     //Alors c'est un monstre fantome
                     g.drawImage(img_fantome, y_m * TAILLE, x_m * TAILLE, null);
@@ -99,7 +100,15 @@ public class DessinPerso implements DessinJeu {
 
 
         g.drawImage(img_aventurier, yAvent * TAILLE, xAvent * TAILLE, null);
+        BarVie(g,xAvent,yAvent,l.getAventurier(),5);
         //g.setColor(Color.RED);
         //g.fillOval(yAvent*TAILLE,xAvent*TAILLE,TAILLE,TAILLE);
+    }
+
+    public void BarVie(Graphics2D g,int x,int y,Personnage p,int pvMax){
+        g.setColor(Color.GREEN);
+        g.fillRect(y*TAILLE,x*TAILLE,TAILLE*p.getPv()/pvMax,TAILLE/6);
+        g.setColor(Color.BLACK);
+        g.drawRect(y*TAILLE,x*TAILLE,TAILLE,TAILLE/6);
     }
 }
