@@ -90,7 +90,7 @@ public class DessinPerso implements DessinJeu {
                 int y_m = c_monstre.get(i).getY();
                 if (monstre.get(i) instanceof Troll) {
                     g.drawImage(img_troll, y_m * TAILLE, x_m * TAILLE, null);
-                    BarVie(g,x_m,y_m,monstre.get(i),VIETROLL);
+                    barreVie(g,x_m,y_m,monstre.get(i),VIETROLL);
                 } else {
                     //Alors c'est un monstre fantome
                     g.drawImage(img_fantome, y_m * TAILLE, x_m * TAILLE, null);
@@ -104,12 +104,12 @@ public class DessinPerso implements DessinJeu {
 
 
         g.drawImage(img_aventurier, yAvent * TAILLE, xAvent * TAILLE, null);
-        BarVie(g,xAvent,yAvent,l.getAventurier(),VIEJOUEUR);
+        barreVie(g,xAvent,yAvent,l.getAventurier(),VIEJOUEUR);
         //g.setColor(Color.RED);
         //g.fillOval(yAvent*TAILLE,xAvent*TAILLE,TAILLE,TAILLE);
     }
 
-    public void BarVie(Graphics2D g,int x,int y,Personnage p,int pvMax){
+    public void barreVie(Graphics2D g,int x,int y,Personnage p,int pvMax){
         g.setColor(Color.GREEN);
         g.fillRect(y*TAILLE,x*TAILLE,TAILLE*p.getPv()/pvMax,TAILLE/6);
         g.setColor(Color.BLACK);
