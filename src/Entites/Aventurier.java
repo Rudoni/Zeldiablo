@@ -46,12 +46,5 @@ public class Aventurier extends Personnage {
 
     public void retirerAmulette() {this.amulette = false;}
 
-    /**
-     * Getter du nom
-     * @return le nom du personnage
-     */
-    public String getNom(){
-        return this.nom;
-    }
 
 }
