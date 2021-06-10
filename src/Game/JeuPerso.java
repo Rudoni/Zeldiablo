@@ -47,6 +47,10 @@ public class JeuPerso implements Jeu {
         if (labyrinthe.etreFini()) {
             this.num++;
             this.labyrinthe.getAventurier().retirerAmulette();
+            if (num == 13){
+                System.out.println("bien jouehr à toihr c'est la win");
+                System.exit(0);
+            }
             try {
                 this.labyrinthe.changerLabyrinthe(num);
             } catch (IOException e) {

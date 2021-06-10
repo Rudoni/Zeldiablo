@@ -62,7 +62,8 @@ public class Labyrinthe {
     }
 
     public void changerLabyrinthe(int num) throws IOException {
-        this.monstres = new ArrayList<Monstre>();
+        this.monstres = new ArrayList<>();
+        this.caseMonstres = new ArrayList<>();
         this.cases = new Case[21][21];
 
         //Lecture du fichier texte pour créer le labyrinthe
@@ -164,8 +165,7 @@ public class Labyrinthe {
      * Méthode interne à la classe pour eviter du copier/coller
      */
     private boolean essayerMovement(int x, int y) {
-        boolean f = false;
-        Case c = this.caseAventurier;
+        boolean deplacementReussi = false;
         if(caseExiste(x,y,this.caseAventurier)) {
             Case destination = this.cases[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y];
             if (!(destination instanceof Obstacle) && !(destination.estOccupe())) {
@@ -174,18 +174,18 @@ public class Labyrinthe {
                 caseAventurier = this.cases[caseAventurier.getX() + x][caseAventurier.getY() + y];
                 caseAventurier.setPersonnage(p);
                 this.caseAventurier.faireDegat();
-                f = true;
-            } else {
+                deplacementReussi = true;
+            }/* else {
                 System.out.println("case non accessible");
-            }
-        }else {
+            }*/
+        }/*else {
             System.out.println("Case Inexistante");
-        }
-        return f;
+        }*/
+        return deplacementReussi;
     }
 
     private boolean essayerMovement(int x, int y,int nbMonstre) {
-        boolean f = false;
+        boolean deplacementReussi = false;
         Case c = this.caseMonstres.get(nbMonstre);
         if(caseExiste(x,y,c)) {
             Case destination = this.cases[c.getX() + x][c.getY() + y];
@@ -193,10 +193,10 @@ public class Labyrinthe {
                 this.caseMonstres.get(nbMonstre).retirerPersonnage();
                 this.caseMonstres.set(nbMonstre,destination);
                 this.caseMonstres.get(nbMonstre).setPersonnage(this.monstres.get(nbMonstre));
-                f = true;
+                deplacementReussi = true;
             }
         }
-        return f;
+        return deplacementReussi;
     }
 
 
@@ -249,7 +249,7 @@ public class Labyrinthe {
         }
         if (this.caseAventurier.isCoeur()){
             this.getCaseAventurier().retirerCoeur();
-            aventurier.setPv(aventurier.getPv()+5);
+            aventurier.setPv(aventurier.getPv()+10);
         }
         this.attaquer();
         if (this.caseAventurier.getAmulette()) {
@@ -338,8 +338,8 @@ public class Labyrinthe {
                             cases[i][j] = c_troll;
                             this.caseMonstres.add(c_troll);
                             Troll troll = new Troll();
-                            this.monstres.add(troll);
                             c_troll.setPersonnage(troll);
+                            this.monstres.add(troll);
                             break;
                         case('6'):
                             Vide c_fant = new Vide(i, j, false, false);

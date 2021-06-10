@@ -6,6 +6,7 @@ package Entites;
 public abstract class Personnage {
     private int pv;
     private int degats;
+    private int pvMax;
 
     /**
      * Constructeur de personnage
@@ -14,6 +15,7 @@ public abstract class Personnage {
     public Personnage(int hp, int degats){
         this.pv = hp;
         this.degats = degats;
+        this.pvMax = hp;
     }
 
     /**
@@ -53,5 +55,9 @@ public abstract class Personnage {
         if (p != null){
             p.subirDegat(this.getDegats());
         }
+    }
+
+    public int getPvMax() {
+        return pvMax;
     }
 }

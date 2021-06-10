@@ -14,8 +14,6 @@ import java.util.ArrayList;
 public class DessinPerso implements DessinJeu {
 
     private final int TAILLE = 40;
-    private final int VIEJOUEUR = 20;
-    private final int VIETROLL = 40;
     private JeuPerso jeu;
     private Image img_aventurier, img_sol, img_mur, img_amu, img_piege, img_troll, img_fantome, img_coeur;
 
@@ -90,7 +88,7 @@ public class DessinPerso implements DessinJeu {
                 int y_m = c_monstre.get(i).getY();
                 if (monstre.get(i) instanceof Troll) {
                     g.drawImage(img_troll, y_m * TAILLE, x_m * TAILLE, null);
-                    barreVie(g,x_m,y_m,monstre.get(i),VIETROLL);
+                    barreVie(g,x_m,y_m,monstre.get(i), Color.MAGENTA);
                 } else {
                     //Alors c'est un monstre fantome
                     g.drawImage(img_fantome, y_m * TAILLE, x_m * TAILLE, null);
@@ -104,19 +102,21 @@ public class DessinPerso implements DessinJeu {
 
 
         g.drawImage(img_aventurier, yAvent * TAILLE, xAvent * TAILLE, null);
-        barreVie(g,xAvent,yAvent,l.getAventurier(),VIEJOUEUR);
+        barreVie(g,xAvent,yAvent,l.getAventurier(), Color.GREEN);
         //g.setColor(Color.RED);
         //g.fillOval(yAvent*TAILLE,xAvent*TAILLE,TAILLE,TAILLE);
     }
 
-    public void barreVie(Graphics2D g,int x,int y,Personnage p,int pvMax){
-        if (p.getPv() <= 20){
+    public void barreVie(Graphics2D g,int x,int y,Personnage p, Color color){
+            /*if (p.getPv() <= 20){
             if(p instanceof Aventurier){
                 g.setColor(Color.green);
             } else {
                 g.setColor(Color.magenta);
             }
         }
+             */
+        g.setColor(color);
         if (p.getPv()<15){
             g.setColor(Color.ORANGE);
         }
@@ -126,7 +126,7 @@ public class DessinPerso implements DessinJeu {
         if (p.getPv()<5){
             g.setColor(Color.RED);
         }
-        g.fillRect(y*TAILLE,x*TAILLE,TAILLE*p.getPv()/pvMax,TAILLE/6);
+        g.fillRect(y*TAILLE,x*TAILLE,TAILLE*p.getPv()/p.getPvMax(),TAILLE/6);
         g.setColor(Color.BLACK);
         g.drawRect(y*TAILLE,x*TAILLE,TAILLE,TAILLE/6);
     }
