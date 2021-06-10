@@ -4,6 +4,7 @@ import Cases.Case;
 import Cases.Obstacle;
 import Cases.Piege;
 import Cases.Vide;
+import Entites.Monstre;
 import MoteurJeu.DessinJeu;
 
 import javax.imageio.ImageIO;
@@ -11,12 +12,13 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class DessinPerso implements DessinJeu {
 
     private final int TAILLE = 47;
     private JeuPerso jeu;
-    private Image img_aventurier,img_sol,img_mur,img_amu,img_piege;
+    private Image img_aventurier,img_sol,img_mur,img_amu,img_piege,img_troll,img_fantome;
 
     /**
      * Constructeur de Dessin
@@ -39,6 +41,8 @@ public class DessinPerso implements DessinJeu {
             img_sol = ImageIO.read(new File(".\\src\\Images\\grass.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
             img_amu = ImageIO.read(new File(".\\src\\Images\\amulette.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
             img_piege = ImageIO.read(new File(".\\src\\Images\\piege.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
+            img_troll = ImageIO.read(new File(".\\src\\Images\\troll.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
+            img_fantome = ImageIO.read(new File(".\\src\\Images\\fantome.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
         } catch (IOException ex) {
             System.out.println("Erreur : Chargement des images");
         }
@@ -49,6 +53,9 @@ public class DessinPerso implements DessinJeu {
         g.setColor(Color.BLUE);
         Labyrinthe l = jeu.getLabyrinthe();
         Case[][] c = l.getCases();
+        ArrayList<Monstre> monstre = l.getMonstres();
+        ArrayList<Case> c_monstre = l.getCaseMonstres();
+
         for (int x = 0; x < c.length; x++) {
             for (int y = 0; y < c.length; y++) {
                 if (!(c[y][x] instanceof Obstacle)){
@@ -75,7 +82,19 @@ public class DessinPerso implements DessinJeu {
             }
         }
         // boucle pour les monstres
+        for(int i = 0 ; i<monstre.size();i++){
+            if(monstre.get(i)!=null) {
+                int x = c_monstre.get(i).getX();
+                int y = c_monstre.get(i).getY();
+                if (monstre.get(i) instanceof Troll) {
+                    g.drawImage(img_troll, y * TAILLE, x * TAILLE, null);
+                } else {
+                    //Alors c'est un monstre fantome
+                    g.drawImage(img_fantome, y * TAILLE, x * TAILLE, null);
 
+                }
+            }
+        }
         // Affichage du joueur
         int xAvent = l.getCaseAventurier().getX();
         int yAvent = l.getCaseAventurier().getY();

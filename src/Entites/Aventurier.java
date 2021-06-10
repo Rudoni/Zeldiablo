@@ -4,8 +4,9 @@ package Entites;
  * Classe Aventurier
  */
 public class Aventurier extends Personnage {
-
+    private String nom;
     boolean amulette;
+
 
     /**
      * Constructeur d'aventurier
@@ -13,7 +14,8 @@ public class Aventurier extends Personnage {
      * @param s nom de l'aventurier
      */
     public Aventurier(String s) {
-        super(s, 5, 10);
+        super(5, 10);
+        this.nom = s;
         this.amulette = false;
     }
 
@@ -41,4 +43,13 @@ public class Aventurier extends Personnage {
     public boolean getAmulette() {
         return this.amulette;
     }
+
+    /**
+     * Getter du nom
+     * @return le nom du personnage
+     */
+    public String getNom(){
+        return this.nom;
+    }
+
 }

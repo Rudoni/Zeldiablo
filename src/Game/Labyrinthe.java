@@ -1,12 +1,7 @@
 package Game;
 
-import Cases.Case;
-import Cases.Obstacle;
-import Cases.Piege;
-import Cases.Vide;
-import Entites.Aventurier;
-import Entites.Monstre;
-import Entites.Personnage;
+import Cases.*;
+import Entites.*;
 import MoteurJeu.Commande;
 
 import java.io.BufferedReader;
@@ -24,15 +19,14 @@ public class Labyrinthe {
      * Attributs de type case
      */
     private Case[][] cases;
-    private Case caseDepart;
-    private Case caseArrivee;
+    private Case caseDepart,caseArrivee,caseAventurier;;
 
     /**
      * Attributs de type personnages
      */
     private Aventurier aventurier;
-    private Case caseAventurier;
     private ArrayList<Monstre> monstres;
+    private ArrayList<Case> caseMonstres;
 
     /**
      * Constructeur de labyrinthe a partir d'un fichier texte
@@ -303,11 +297,23 @@ public class Labyrinthe {
         }
     }
 
+    public void evoluerMonstres(){
+
+    }
+
     /**
      * Obtenir la case ou se trouve actuellement l'aventurier
      * @return la case de l'aventurier
      */
     public Case getCaseAventurier(){
         return this.caseAventurier;
+    }
+
+    public ArrayList<Monstre> getMonstres(){
+        return this.monstres;
+    }
+
+    public ArrayList<Case> getCaseMonstres(){
+        return this.caseMonstres;
     }
 }

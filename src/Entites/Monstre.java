@@ -9,22 +9,14 @@ public class Monstre extends Personnage {
      * Constructeur de monstre
      * @param s nom du monstre
      */
-    public Monstre(String s) {
-        super(s, 10, 1);
+    public Monstre(int vie,int d) {
+        super(vie, d);
     }
 
-    @Override
-    public void attaquer(Personnage p) {
-
-    }
-
-    @Override
-    public void subirDegat(Personnage p) {
-
-    }
-
-    @Override
     public void subirDegat(int d) {
-
+        if (!this.etreMort()) {
+            this.setPv(this.getPv() - d);
+        }
     }
+
 }

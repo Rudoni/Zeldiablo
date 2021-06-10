@@ -4,27 +4,16 @@ package Entites;
  * Classe abstraite personnage
  */
 public abstract class Personnage {
-    private String nom;
     private int pv;
     private int degats;
 
     /**
      * Constructeur de personnage
-     * @param s nom du perso
      * @param hp points de vie du perso
      */
-    public Personnage(String s, int hp, int degats){
-        this.nom = s;
+    public Personnage(int hp, int degats){
         this.pv = hp;
         this.degats = degats;
-    }
-
-    /**
-     * Getter du nom
-     * @return le nom du personnage
-     */
-    public String getNom(){
-        return this.nom;
     }
 
     /**
@@ -53,23 +42,11 @@ public abstract class Personnage {
         return this.getPv() == 0;
     }
 
-    public void subirDegat(Personnage p) {
-        if (!this.etreMort()) {
-            int pvActu = this.getPv();
-            int degats = pvActu - p.getDegats();
-            this.setPv(degats);
-        } else {
-            System.out.println("Vous etes mort, vous avez perdu");
-            System.exit(1);
-        }
-    }
-
     public abstract void subirDegat(int d);
-
 
     public void attaquer(Personnage p) {
         if (p != null){
-            p.subirDegat(this);
+            p.subirDegat(this.getDegats());
         }
     }
 }
