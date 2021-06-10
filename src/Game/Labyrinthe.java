@@ -309,7 +309,7 @@ public class Labyrinthe {
                 caseAventurier.retirerPersonnage();
                 caseAventurier = this.cases[caseAventurier.getX() + x][caseAventurier.getY() + y];
                 caseAventurier.setPersonnage(p);
-                //this.caseAventurier.faireDegat();
+                this.caseAventurier.faireDegat();
                 f = true;
             } else {
                 System.out.println("case non accessible");
