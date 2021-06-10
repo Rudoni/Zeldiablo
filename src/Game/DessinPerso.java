@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class DessinPerso implements DessinJeu {
 
-    private final int TAILLE = 47;
+    private final int TAILLE = 40;
     private final int VIEJOUEUR = 20;
     private final int VIETROLL = 40;
     private JeuPerso jeu;

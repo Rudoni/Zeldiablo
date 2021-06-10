@@ -11,7 +11,7 @@ public class MainPerso {
         JeuPerso jeu = new JeuPerso();
         DessinPerso dessin = new DessinPerso(jeu);
         MoteurGraphique moteur = new MoteurGraphique(jeu,dessin);
-        moteur.lancerJeu(1000,1000);
+        moteur.lancerJeu(845,845);
         System.out.println("Finito");
     }
 }
