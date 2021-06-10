@@ -21,10 +21,6 @@ public class Piege extends Case {
         this.active = false;
     }
 
-    public boolean getActive(){
-        return this.active;
-    }
-
     public void faireDegat(){
         this.personnage.subirDegat(1);
         this.desactivePiege();
@@ -37,7 +33,16 @@ public class Piege extends Case {
     }
 
     @Override
+    public boolean isCoeur() {
+        return false;
+    }
+
+    @Override
     public void retirerAmulette() {
+    }
+
+    @Override
+    public void retirerCoeur() {
 
     }
 }

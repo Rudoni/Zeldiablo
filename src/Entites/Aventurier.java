@@ -5,7 +5,7 @@ package Entites;
  */
 public class Aventurier extends Personnage {
     private String nom;
-    boolean amulette;
+    private boolean amulette;
 
 
     /**

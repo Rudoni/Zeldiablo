@@ -25,7 +25,17 @@ public class Obstacle extends Case {
     }
 
     @Override
+    public boolean isCoeur() {
+        return false;
+    }
+
+    @Override
     public void retirerAmulette() {
+
+    }
+
+    @Override
+    public void retirerCoeur() {
 
     }
 

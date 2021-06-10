@@ -87,7 +87,12 @@ public abstract class Case {
      */
     public abstract boolean getAmulette();
 
+    public abstract boolean isCoeur();
+
     public abstract void retirerAmulette();
+
+    public abstract void retirerCoeur();
+
 }
 
 

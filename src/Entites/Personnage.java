@@ -28,7 +28,12 @@ public abstract class Personnage {
      * Setter des pvs
      * @param newPv nouveaux pv du perso
      */
-    public void setPv(int newPv) {this.pv = newPv;}
+    public void setPv(int newPv) {
+        this.pv = newPv;
+        if (this.pv>20){
+            this.pv =20;
+        }
+    }
 
     /**
      * Getter des dégats du perso

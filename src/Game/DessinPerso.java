@@ -15,9 +15,9 @@ public class DessinPerso implements DessinJeu {
 
     private final int TAILLE = 47;
     private final int VIEJOUEUR = 20;
-    private final int VIETROLL = 3;
+    private final int VIETROLL = 40;
     private JeuPerso jeu;
-    private Image img_aventurier, img_sol, img_mur, img_amu, img_piege, img_troll, img_fantome;
+    private Image img_aventurier, img_sol, img_mur, img_amu, img_piege, img_troll, img_fantome, img_coeur;
 
     /**
      * Constructeur de Dessin
@@ -44,6 +44,7 @@ public class DessinPerso implements DessinJeu {
             img_piege = ImageIO.read(new File(".\\src\\Images\\piege.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
             img_troll = ImageIO.read(new File(".\\src\\Images\\troll.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
             img_fantome = ImageIO.read(new File(".\\src\\Images\\fantome.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
+            img_coeur = ImageIO.read(new File(".\\src\\Images\\coeur.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
         } catch (IOException ex) {
             System.out.println("Erreur : Chargement des images");
         }
@@ -67,6 +68,9 @@ public class DessinPerso implements DessinJeu {
                         if ((c[y][x]).getAmulette()) {
                             //g.fillOval(y*TAILLE,x*TAILLE,TAILLE,TAILLE);
                             g.drawImage(img_amu, x * TAILLE, y * TAILLE, null);
+                        }
+                        if (c[y][x].isCoeur()){
+                            g.drawImage(img_coeur, x*TAILLE,y*TAILLE,null);
                         }
                     }
                     if (c[y][x] instanceof Piege) {

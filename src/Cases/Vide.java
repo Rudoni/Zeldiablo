@@ -14,14 +14,20 @@ public class Vide extends Case {
     private boolean amulette;
 
     /**
+     * Attribut permettant de redonner de la vie au joueur
+     */
+    private boolean coeur;
+
+    /**
      * Constructeur d'une case vide
      * @param x emplacement abscisse
      * @param y emplacement ordonnee
      * @param amulette si l'amulette est la
      */
-    public Vide(int x, int y, boolean amulette) {
+    public Vide(int x, int y, boolean amulette, boolean coeur) {
         super(x,y);
         this.amulette = amulette;
+        this.coeur = coeur;
     }
 
     /**
@@ -51,7 +57,14 @@ public class Vide extends Case {
 
     }
 
+    public boolean isCoeur() {
+        return coeur;
+    }
 
-
+    public void retirerCoeur(){
+        if (this.getPersonnage() instanceof Aventurier && this.isCoeur()){
+            coeur = false;
+        }
+    }
 
 }

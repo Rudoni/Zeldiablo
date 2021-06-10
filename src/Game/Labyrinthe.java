@@ -20,7 +20,7 @@ public class Labyrinthe {
      * Attributs de type case
      */
     private Case[][] cases;
-    private Case caseArrivee,caseAventurier;;
+    private Case caseArrivee,caseAventurier;
 
     /**
      * Attributs de type personnages
@@ -55,19 +55,19 @@ public class Labyrinthe {
                     //Identifier le types de cases
                     switch (tmp) {
                         case ('0'):
-                            cases[i][j] = new Vide(i, j, false);
+                            cases[i][j] = new Vide(i, j, false, false);
                             break;
                         case ('1'):
                             cases[i][j] = new Obstacle(i, j);
                             break;
                         case ('2'):
-                            Vide debut = new Vide(i, j, false);
+                            Vide debut = new Vide(i, j, false, false);
                             cases[i][j] = debut;
                             this.caseAventurier = debut;
                             this.caseAventurier.setPersonnage(this.aventurier);
                             break;
                         case ('3'):
-                            Vide fin = new Vide(i, j, false);
+                            Vide fin = new Vide(i, j, false, false);
                             cases[i][j] = fin;
                             this.caseArrivee = fin;
                             break;
@@ -75,7 +75,7 @@ public class Labyrinthe {
                             cases[i][j] = new Piege(i, j);
                             break;
                         case('5'):
-                            Vide c_troll = new Vide(i, j, false);
+                            Vide c_troll = new Vide(i, j, false, false);
                             cases[i][j] = c_troll;
                             this.caseMonstres.add(c_troll);
                             Troll troll = new Troll();
@@ -83,15 +83,19 @@ public class Labyrinthe {
                             c_troll.setPersonnage(troll);
                             break;
                         case('6'):
-                            Vide c_fant = new Vide(i, j, false);
+                            Vide c_fant = new Vide(i, j, false, false);
                             cases[i][j] = c_fant;
                             this.caseMonstres.add(c_fant);
                             Fantome fant = new Fantome();
                             c_fant.setPersonnage(fant);
                             this.monstres.add(fant);
                             break;
+                        case('7'):
+                            cases[i][j] = new Vide(i,j,false,true);
+                            break;
                         case ('9'):
-                            cases[i][j] = new Vide(i, j, true);
+                            cases[i][j] = new Vide(i, j, true, false);
+                            break;
                     }
                 }
                 i++;
@@ -127,27 +131,30 @@ public class Labyrinthe {
                     //Identifier le types de cases
                     switch (tmp) {
                         case ('0'):
-                            cases[i][j] = new Vide(i, j, false);
+                            cases[i][j] = new Vide(i, j, false,false);
                             break;
                         case ('1'):
                             cases[i][j] = new Obstacle(i, j);
                             break;
                         case ('2'):
-                            Vide debut = new Vide(i, j, false);
+                            Vide debut = new Vide(i, j, false, false);
                             cases[i][j] = debut;
                             this.caseAventurier = debut;
                             this.caseAventurier.setPersonnage(this.aventurier);
                             break;
                         case ('3'):
-                            Vide fin = new Vide(i, j, false);
+                            Vide fin = new Vide(i, j, false, false);
                             cases[i][j] = fin;
                             this.caseArrivee = fin;
                             break;
                         case ('4'):
                             cases[i][j] = new Piege(i, j);
                             break;
+                        case('7'):
+                            cases[i][j] = new Vide(i,j,false,true);
+                            break;
                         case ('9'):
-                            cases[i][j] = new Vide(i, j, true);
+                            cases[i][j] = new Vide(i, j, true, false);
                     }
                 }
                 i++;
@@ -175,27 +182,30 @@ public class Labyrinthe {
                     //Identifier le types de cases
                     switch (tmp) {
                         case ('0'):
-                            cases[i][j] = new Vide(i, j, false);
+                            cases[i][j] = new Vide(i, j, false, false);
                             break;
                         case ('1'):
                             cases[i][j] = new Obstacle(i, j);
                             break;
                         case ('2'):
-                            Vide debut = new Vide(i, j, false);
+                            Vide debut = new Vide(i, j, false, false);
                             cases[i][j] = debut;
                             this.caseAventurier = debut;
                             this.caseAventurier.setPersonnage(this.aventurier);
                             break;
                         case ('3'):
-                            Vide fin = new Vide(i, j, false);
+                            Vide fin = new Vide(i, j, false, false);
                             cases[i][j] = fin;
                             this.caseArrivee = fin;
                             break;
                         case ('4'):
                             cases[i][j] = new Piege(i, j);
                             break;
+                        case('7'):
+                            cases[i][j] = new Vide(i,j,false,true);
+                            break;
                         case ('9'):
-                            cases[i][j] = new Vide(i, j, true);
+                            cases[i][j] = new Vide(i, j, true, false);
                     }
                 }
                 i++;
@@ -377,6 +387,10 @@ public class Labyrinthe {
         }
         if (commandeUser.bas) {
             this.essayerMovement(+1, 0);
+        }
+        if (this.caseAventurier.isCoeur()){
+            this.getCaseAventurier().retirerCoeur();
+            aventurier.setPv(aventurier.getPv()+5);
         }
         this.attaquer();
         if (this.caseAventurier.getAmulette()) {
