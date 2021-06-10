@@ -33,7 +33,7 @@ public class Labyrinthe {
      * Constructeur de labyrinthe a partir d'un fichier texte
      * @param nom nom de l'aventurier
      */
-    public Labyrinthe(String nom) {
+    public Labyrinthe(String nom) throws IOException {
 
         //Instanciation des attributs
         this.aventurier = new Aventurier(nom);
@@ -42,67 +42,7 @@ public class Labyrinthe {
         this.cases = new Case[21][21];
 
         //Lecture du fichier texte pour créer le labyrinthe
-        try {
-            //Mise en place d'un reader
-            File f = new File("src/Labyrinthes/labyrinthe1.txt");
-            BufferedReader in = new BufferedReader(new FileReader(f));
-            String a;
-            int i = 0;
-            //Lecture de chaque lignes du fichier
-            while (!((a = in.readLine()) == null)) {
-                for (int j = 0; j < a.length(); j++) {
-                    char tmp = a.charAt(j);
-                    //Identifier le types de cases
-                    switch (tmp) {
-                        case ('0'):
-                            cases[i][j] = new Vide(i, j, false, false);
-                            break;
-                        case ('1'):
-                            cases[i][j] = new Obstacle(i, j);
-                            break;
-                        case ('2'):
-                            Vide debut = new Vide(i, j, false, false);
-                            cases[i][j] = debut;
-                            this.caseAventurier = debut;
-                            this.caseAventurier.setPersonnage(this.aventurier);
-                            break;
-                        case ('3'):
-                            Vide fin = new Vide(i, j, false, false);
-                            cases[i][j] = fin;
-                            this.caseArrivee = fin;
-                            break;
-                        case ('4'):
-                            cases[i][j] = new Piege(i, j);
-                            break;
-                        case('5'):
-                            Vide c_troll = new Vide(i, j, false, false);
-                            cases[i][j] = c_troll;
-                            this.caseMonstres.add(c_troll);
-                            Troll troll = new Troll();
-                            this.monstres.add(troll);
-                            c_troll.setPersonnage(troll);
-                            break;
-                        case('6'):
-                            Vide c_fant = new Vide(i, j, false, false);
-                            cases[i][j] = c_fant;
-                            this.caseMonstres.add(c_fant);
-                            Fantome fant = new Fantome();
-                            c_fant.setPersonnage(fant);
-                            this.monstres.add(fant);
-                            break;
-                        case('7'):
-                            cases[i][j] = new Vide(i,j,false,true);
-                            break;
-                        case ('9'):
-                            cases[i][j] = new Vide(i, j, true, false);
-                            break;
-                    }
-                }
-                i++;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        this.charger("labyrinthe1");
     }
 
     /**
@@ -110,7 +50,7 @@ public class Labyrinthe {
      * @param nom nom de l'aventurier qui va y évoluer
      * @param nom_txt nom du txt contenant le labyrinthe a générer
      */
-    public Labyrinthe(String nom, String nom_txt) {
+    public Labyrinthe(String nom, String nom_txt) throws IOException {
 
         //Instanciation des attributs
         this.aventurier = new Aventurier(nom);
@@ -118,101 +58,15 @@ public class Labyrinthe {
         this.cases = new Case[21][21];
 
         //Lecture du fichier texte pour créer le labyrinthe
-        try {
-            //Mise en place d'un reader
-            File f = new File("src/Labyrinthes/"+nom_txt+".txt");
-            BufferedReader in = new BufferedReader(new FileReader(f));
-            String a;
-            int i = 0;
-            //Lecture de chaque lignes du fichier
-            while (!((a = in.readLine()) == null)) {
-                for (int j = 0; j < a.length(); j++) {
-                    char tmp = a.charAt(j);
-                    //Identifier le types de cases
-                    switch (tmp) {
-                        case ('0'):
-                            cases[i][j] = new Vide(i, j, false,false);
-                            break;
-                        case ('1'):
-                            cases[i][j] = new Obstacle(i, j);
-                            break;
-                        case ('2'):
-                            Vide debut = new Vide(i, j, false, false);
-                            cases[i][j] = debut;
-                            this.caseAventurier = debut;
-                            this.caseAventurier.setPersonnage(this.aventurier);
-                            break;
-                        case ('3'):
-                            Vide fin = new Vide(i, j, false, false);
-                            cases[i][j] = fin;
-                            this.caseArrivee = fin;
-                            break;
-                        case ('4'):
-                            cases[i][j] = new Piege(i, j);
-                            break;
-                        case('7'):
-                            cases[i][j] = new Vide(i,j,false,true);
-                            break;
-                        case ('9'):
-                            cases[i][j] = new Vide(i, j, true, false);
-                    }
-                }
-                i++;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        this.charger(nom_txt);
     }
 
-    public void changerLabyrinthe(int num) {
+    public void changerLabyrinthe(int num) throws IOException {
         this.monstres = new ArrayList<Monstre>();
         this.cases = new Case[21][21];
 
         //Lecture du fichier texte pour créer le labyrinthe
-        try {
-            //Mise en place d'un reader
-            File f = new File("src/Labyrinthes/labyrinthe"+num+".txt");
-            BufferedReader in = new BufferedReader(new FileReader(f));
-            String a;
-            int i = 0;
-            //Lecture de chaque lignes du fichier
-            while (!((a = in.readLine()) == null)) {
-                for (int j = 0; j < a.length(); j++) {
-                    char tmp = a.charAt(j);
-                    //Identifier le types de cases
-                    switch (tmp) {
-                        case ('0'):
-                            cases[i][j] = new Vide(i, j, false, false);
-                            break;
-                        case ('1'):
-                            cases[i][j] = new Obstacle(i, j);
-                            break;
-                        case ('2'):
-                            Vide debut = new Vide(i, j, false, false);
-                            cases[i][j] = debut;
-                            this.caseAventurier = debut;
-                            this.caseAventurier.setPersonnage(this.aventurier);
-                            break;
-                        case ('3'):
-                            Vide fin = new Vide(i, j, false, false);
-                            cases[i][j] = fin;
-                            this.caseArrivee = fin;
-                            break;
-                        case ('4'):
-                            cases[i][j] = new Piege(i, j);
-                            break;
-                        case('7'):
-                            cases[i][j] = new Vide(i,j,false,true);
-                            break;
-                        case ('9'):
-                            cases[i][j] = new Vide(i, j, true, false);
-                    }
-                }
-                i++;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        this.charger("labyrinthe"+num);
     }
 
     /**
@@ -355,7 +209,12 @@ public class Labyrinthe {
      * @param args
      */
     public static void main(String[] args) {
-        Labyrinthe l = new Labyrinthe("Paul");
+        Labyrinthe l = null;
+        try {
+            l = new Labyrinthe("Paul");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         l.afficher();
         while(true){
             l.deplacer();
@@ -438,6 +297,70 @@ public class Labyrinthe {
                     this.aventurier.attaquer(c.getPersonnage());
                 }
             }
+        }
+    }
+
+    private void charger(String nom_txt) throws IOException {
+        try {
+            //Mise en place d'un reader
+            File f = new File("src/Labyrinthes/"+nom_txt+".txt");
+            BufferedReader in = new BufferedReader(new FileReader(f));
+            String ligne;
+            int i = 0;
+            //Lecture de chaque lignes du fichier
+            while (!((ligne = in.readLine()) == null)) {
+                for (int j = 0; j < ligne.length(); j++) {
+                    char tmp = ligne.charAt(j);
+                    //Identifier le types de cases
+                    switch (tmp) {
+                        case ('0'):
+                            cases[i][j] = new Vide(i, j, false, false);
+                            break;
+                        case ('1'):
+                            cases[i][j] = new Obstacle(i, j);
+                            break;
+                        case ('2'):
+                            Vide debut = new Vide(i, j, false, false);
+                            cases[i][j] = debut;
+                            this.caseAventurier = debut;
+                            this.caseAventurier.setPersonnage(this.aventurier);
+                            break;
+                        case ('3'):
+                            Vide fin = new Vide(i, j, false, false);
+                            cases[i][j] = fin;
+                            this.caseArrivee = fin;
+                            break;
+                        case ('4'):
+                            cases[i][j] = new Piege(i, j);
+                            break;
+                        case('5'):
+                            Vide c_troll = new Vide(i, j, false, false);
+                            cases[i][j] = c_troll;
+                            this.caseMonstres.add(c_troll);
+                            Troll troll = new Troll();
+                            this.monstres.add(troll);
+                            c_troll.setPersonnage(troll);
+                            break;
+                        case('6'):
+                            Vide c_fant = new Vide(i, j, false, false);
+                            cases[i][j] = c_fant;
+                            this.caseMonstres.add(c_fant);
+                            Fantome fant = new Fantome();
+                            c_fant.setPersonnage(fant);
+                            this.monstres.add(fant);
+                            break;
+                        case('7'):
+                            cases[i][j] = new Vide(i,j,false,true);
+                            break;
+                        case ('9'):
+                            cases[i][j] = new Vide(i, j, true, false);
+                            break;
+                    }
+                }
+                i++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

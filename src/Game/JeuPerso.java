@@ -3,6 +3,8 @@ package Game;
 import MoteurJeu.Commande;
 import MoteurJeu.Jeu;
 
+import java.io.IOException;
+
 /**
  * classe qui contient les donnees du jeu. Pour le moment, il ne possede qu'un
  * personnage
@@ -19,12 +21,17 @@ public class JeuPerso implements Jeu {
      */
     private boolean sorti;
     private int num;
+
     /**
      * constructeur de jeu avec un Personnage
      */
     public JeuPerso() {
         this.num = 1;
-        this.labyrinthe = new Labyrinthe("Paul");
+        try {
+            this.labyrinthe = new Labyrinthe("Paul");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         this.sorti = false;
     }
 
@@ -40,12 +47,17 @@ public class JeuPerso implements Jeu {
         if (labyrinthe.etreFini()) {
             this.num++;
             this.labyrinthe.getAventurier().retirerAmulette();
-            this.labyrinthe.changerLabyrinthe(num);
+            try {
+                this.labyrinthe.changerLabyrinthe(num);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     /**
      * Revoie faux car le jeu ne fini pas
+     *
      * @return false
      */
     @Override
@@ -56,6 +68,7 @@ public class JeuPerso implements Jeu {
 
     /**
      * Getter du labyrinthe
+     *
      * @return le labyrinthe
      */
     public Labyrinthe getLabyrinthe() {
