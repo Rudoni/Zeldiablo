@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class DessinPerso implements DessinJeu {
 
     private final int TAILLE = 47;
-    private final int VIEJOUEUR = 5;
+    private final int VIEJOUEUR = 20;
     private final int VIETROLL = 3;
     private JeuPerso jeu;
     private Image img_aventurier, img_sol, img_mur, img_amu, img_piege, img_troll, img_fantome;
@@ -86,7 +86,7 @@ public class DessinPerso implements DessinJeu {
                 int y_m = c_monstre.get(i).getY();
                 if (monstre.get(i) instanceof Troll) {
                     g.drawImage(img_troll, y_m * TAILLE, x_m * TAILLE, null);
-                    BarVie(g,x_m,y_m,monstre.get(i),3);
+                    BarVie(g,x_m,y_m,monstre.get(i),VIETROLL);
                 } else {
                     //Alors c'est un monstre fantome
                     g.drawImage(img_fantome, y_m * TAILLE, x_m * TAILLE, null);
@@ -100,7 +100,7 @@ public class DessinPerso implements DessinJeu {
 
 
         g.drawImage(img_aventurier, yAvent * TAILLE, xAvent * TAILLE, null);
-        BarVie(g,xAvent,yAvent,l.getAventurier(),5);
+        BarVie(g,xAvent,yAvent,l.getAventurier(),VIEJOUEUR);
         //g.setColor(Color.RED);
         //g.fillOval(yAvent*TAILLE,xAvent*TAILLE,TAILLE,TAILLE);
     }

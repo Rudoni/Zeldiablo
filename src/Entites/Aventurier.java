@@ -14,7 +14,7 @@ public class Aventurier extends Personnage {
      * @param s nom de l'aventurier
      */
     public Aventurier(String s) {
-        super(5, 10);
+        super(20, 10);
         this.nom = s;
         this.amulette = false;
     }

@@ -39,7 +39,7 @@ public abstract class Personnage {
     }
 
     public boolean etreMort() {
-        return this.getPv() == 0;
+        return this.getPv() <= 0;
     }
 
     public abstract void subirDegat(int d);

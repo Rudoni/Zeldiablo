@@ -39,6 +39,7 @@ public class JeuPerso implements Jeu {
         labyrinthe.evoluerAventurier(commandeUser);
         labyrinthe.evoluerMonstres();
         this.sorti = labyrinthe.etreFini();
+        System.out.println(labyrinthe.getMonstres().size()+" "+labyrinthe.getCaseMonstres().size());
         if (this.sorti) {
             this.num++;
             this.labyrinthe.getAventurier().retirerAmulette();

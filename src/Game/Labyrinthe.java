@@ -378,6 +378,7 @@ public class Labyrinthe {
         if (commandeUser.bas) {
             this.essayerMovement(+1, 0);
         }
+        this.attaquer();
         if (this.caseAventurier.getAmulette()) {
             this.aventurier.amuletteRecuperee();
             this.getCaseAventurier().retirerAmulette();
@@ -391,10 +392,37 @@ public class Labyrinthe {
         Random r = new Random();
         for (int i=0;i<this.monstres.size();i++){
             essayerMovement(r.nextInt(3)-1,r.nextInt(3)-1,i);
+            monstreAttaque(i);
             if(this.monstres.get(i).etreMort()){
                 this.caseMonstres.get(i).retirerPersonnage();
                 this.monstres.remove(i);
                 this.caseMonstres.remove(i);
+            }
+        }
+    }
+
+    public void monstreAttaque(int nbMonstres){
+        int[] coordonnéesX= {0,0,-1,+1} ;
+        int[] coordonnéesY= {-1,+1,0,0} ;
+        for(int i = 0;i<4;i++) {
+            if(caseExiste(coordonnéesX[i],coordonnéesY[i],this.caseMonstres.get(nbMonstres))){
+                Case c = this.cases[this.caseMonstres.get(nbMonstres).getX() + coordonnéesX[i]][this.caseMonstres.get(nbMonstres).getY() + coordonnéesY[i]];
+                if (c.getPersonnage() == this.aventurier) {
+                    this.monstres.get(nbMonstres).attaquer(this.aventurier);
+                }
+            }
+        }
+    }
+
+    public void attaquer(){
+        int[] coordonnéesX= {0,0,-1,+1} ;
+        int[] coordonnéesY= {-1,+1,0,0} ;
+        for(int i = 0;i<4;i++) {
+            if(caseExiste(coordonnéesX[i],coordonnéesY[i],this.caseAventurier)){
+                Case c = this.cases[this.caseAventurier.getX() + coordonnéesX[i]][this.caseAventurier.getY() + coordonnéesY[i]];
+                if (c.getPersonnage() != null) {
+                    this.aventurier.attaquer(c.getPersonnage());
+                }
             }
         }
     }

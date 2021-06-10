@@ -91,7 +91,6 @@ public class Controleur implements KeyListener {
 			this.commandeEnCours.bas = false;
 			break;
 		}
-
 	}
 
 	@Override
