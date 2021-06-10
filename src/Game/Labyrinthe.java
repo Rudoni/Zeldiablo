@@ -44,7 +44,7 @@ public class Labyrinthe {
         //Lecture du fichier texte pour créer le labyrinthe
         try {
             //Mise en place d'un reader
-            File f = new File("src/Labyrinthes/Test.txt");
+            File f = new File("src/Labyrinthes/labyrinthe1.txt");
             BufferedReader in = new BufferedReader(new FileReader(f));
             String a;
             int i = 0;
@@ -117,6 +117,54 @@ public class Labyrinthe {
         try {
             //Mise en place d'un reader
             File f = new File("src/Labyrinthes/"+nom_txt+".txt");
+            BufferedReader in = new BufferedReader(new FileReader(f));
+            String a;
+            int i = 0;
+            //Lecture de chaque lignes du fichier
+            while (!((a = in.readLine()) == null)) {
+                for (int j = 0; j < a.length(); j++) {
+                    char tmp = a.charAt(j);
+                    //Identifier le types de cases
+                    switch (tmp) {
+                        case ('0'):
+                            cases[i][j] = new Vide(i, j, false);
+                            break;
+                        case ('1'):
+                            cases[i][j] = new Obstacle(i, j);
+                            break;
+                        case ('2'):
+                            Vide debut = new Vide(i, j, false);
+                            cases[i][j] = debut;
+                            this.caseAventurier = debut;
+                            this.caseAventurier.setPersonnage(this.aventurier);
+                            break;
+                        case ('3'):
+                            Vide fin = new Vide(i, j, false);
+                            cases[i][j] = fin;
+                            this.caseArrivee = fin;
+                            break;
+                        case ('4'):
+                            cases[i][j] = new Piege(i, j);
+                            break;
+                        case ('9'):
+                            cases[i][j] = new Vide(i, j, true);
+                    }
+                }
+                i++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void changerLabyrinthe(int num) {
+        this.monstres = new ArrayList<Monstre>();
+        this.cases = new Case[21][21];
+
+        //Lecture du fichier texte pour créer le labyrinthe
+        try {
+            //Mise en place d'un reader
+            File f = new File("src/Labyrinthes/labyrinthe"+num+".txt");
             BufferedReader in = new BufferedReader(new FileReader(f));
             String a;
             int i = 0;
@@ -310,7 +358,7 @@ public class Labyrinthe {
      * @return vrai si on a fini le labyrinthe
      */
     public boolean etreFini() {
-        return ((this.caseAventurier == this.caseArrivee) && (this.aventurier.getAmulette()));
+        return (this.caseAventurier == this.caseArrivee) && (this.aventurier.getAmulette());
     }
 
     /**

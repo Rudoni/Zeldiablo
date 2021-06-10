@@ -1,5 +1,6 @@
 package Game;
 
+import Entites.Aventurier;
 import MoteurJeu.Commande;
 import MoteurJeu.Jeu;
 
@@ -18,10 +19,12 @@ public class JeuPerso implements Jeu {
      * Savoir si on est sorti du labyrinthe
      */
     private boolean sorti;
+    private int num;
     /**
      * constructeur de jeu avec un Personnage
      */
     public JeuPerso() {
+        this.num = 1;
         this.labyrinthe = new Labyrinthe("Paul");
         this.sorti = false;
     }
@@ -36,6 +39,11 @@ public class JeuPerso implements Jeu {
         labyrinthe.evoluerAventurier(commandeUser);
         labyrinthe.evoluerMonstres();
         this.sorti = labyrinthe.etreFini();
+        if (this.sorti) {
+            this.num++;
+            this.labyrinthe.getAventurier().retirerAmulette();
+            this.labyrinthe.changerLabyrinthe(num);
+        }
     }
 
     /**

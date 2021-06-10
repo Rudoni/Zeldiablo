@@ -44,6 +44,8 @@ public class Aventurier extends Personnage {
         return this.amulette;
     }
 
+    public void retirerAmulette() {this.amulette = false;}
+
     /**
      * Getter du nom
      * @return le nom du personnage

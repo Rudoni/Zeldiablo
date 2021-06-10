@@ -34,4 +34,7 @@
     - Attribut amulette pour Aventurier et Vide,
 - responsable : Noé Steiner, Adnet Paul
 
+- fonctionnalité 7 : Génération d'un nouveau niveau
+    - Création d'un nouveau niveau quand on va a la case d'arrivée et qu'on a l'amulette
+- responsable Noé Steiner
 
