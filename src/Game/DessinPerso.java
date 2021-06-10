@@ -110,7 +110,22 @@ public class DessinPerso implements DessinJeu {
     }
 
     public void barreVie(Graphics2D g,int x,int y,Personnage p,int pvMax){
-        g.setColor(Color.GREEN);
+        if (p.getPv() <= 20){
+            if(p instanceof Aventurier){
+                g.setColor(Color.green);
+            } else {
+                g.setColor(Color.magenta);
+            }
+        }
+        if (p.getPv()<15){
+            g.setColor(Color.ORANGE);
+        }
+        if (p.getPv()<10){
+            g.setColor(new Color(198, 100, 0));
+        }
+        if (p.getPv()<5){
+            g.setColor(Color.RED);
+        }
         g.fillRect(y*TAILLE,x*TAILLE,TAILLE*p.getPv()/pvMax,TAILLE/6);
         g.setColor(Color.BLACK);
         g.drawRect(y*TAILLE,x*TAILLE,TAILLE,TAILLE/6);
