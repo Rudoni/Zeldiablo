@@ -76,13 +76,19 @@ public class Labyrinthe {
                             break;
                         case('5'):
                             Vide c_troll = new Vide(i, j, false);
+                            cases[i][j] = c_troll;
                             this.caseMonstres.add(c_troll);
-                            this.monstres.add(new Troll());
+                            Troll troll = new Troll();
+                            this.monstres.add(troll);
+                            c_troll.setPersonnage(troll);
                             break;
                         case('6'):
                             Vide c_fant = new Vide(i, j, false);
+                            cases[i][j] = c_fant;
                             this.caseMonstres.add(c_fant);
-                            this.monstres.add(new Fantome());
+                            Fantome fant = new Fantome();
+                            c_fant.setPersonnage(fant);
+                            this.monstres.add(fant);
                             break;
                         case ('9'):
                             cases[i][j] = new Vide(i, j, true);
@@ -248,9 +254,10 @@ public class Labyrinthe {
     private boolean essayerMovement(int x, int y) {
         boolean f = false;
         if(caseExiste(x,y,this.caseAventurier)) {
-            if (!(this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y] instanceof Obstacle) && !(this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y].estOccupe())) {
+            Case destination = this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y];
+            if (!(destination instanceof Obstacle) && !(destination.estOccupe())) {
                 this.caseAventurier.retirerPersonnage();
-                this.caseAventurier = this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y];
+                this.caseAventurier = destination;
                 this.caseAventurier.setPersonnage(this.aventurier);
                 this.caseAventurier.faireDegat();
                 f = true;
@@ -267,9 +274,10 @@ public class Labyrinthe {
         boolean f = false;
         Case c = this.caseMonstres.get(nbMonstre);
         if(caseExiste(x,y,c)) {
-            if ((!(this.getCases()[c.getX() + x][c.getY() + y] instanceof Obstacle) || this.monstres.get(nbMonstre) instanceof Fantome)&& !(this.getCases()[c.getX() + x][c.getY() + y].estOccupe())) {
+            Case destination = this.cases[c.getX() + x][c.getY() + y];
+            if ((!(destination instanceof Obstacle) || this.monstres.get(nbMonstre) instanceof Fantome) && !(destination.estOccupe()) ) {
                 c.retirerPersonnage();
-                c = this.getCases()[c.getX() + x][c.getY() + y];
+                c = destination;
                 c.setPersonnage(this.monstres.get(nbMonstre));
                 f = true;
             }
@@ -278,7 +286,7 @@ public class Labyrinthe {
     }
 
     private boolean caseExiste(int x,int y,Case c){
-        return (c.getX()+x>=0)&&(c.getY()+y>=0)&&(c.getX()+x<=20)&&(c.getY()+y<=20);
+        return (c.getX()+x>=0)&&(c.getY()+y>=0)&&(c.getX()+x<21)&&(c.getY()+y<21);
     }
 
     /**
@@ -330,11 +338,12 @@ public class Labyrinthe {
 
     public void evoluerMonstres(){
         Random r = new Random();
-        for (int i=0;i<monstres.size();i++){
-            essayerMovement(r.nextInt(4)-2,r.nextInt(4)-2,i);
-            if(monstres.get(i).etreMort()){
-                monstres.remove(i);
-                caseMonstres.remove(i);
+        for (int i=0;i<this.monstres.size();i++){
+            essayerMovement(r.nextInt(3)-1,r.nextInt(3)-1,i);
+            if(this.monstres.get(i).etreMort()){
+                this.caseMonstres.get(i).retirerPersonnage();
+                this.monstres.remove(i);
+                this.caseMonstres.remove(i);
             }
         }
     }
