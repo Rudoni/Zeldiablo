@@ -253,13 +253,15 @@ public class Labyrinthe {
      */
     private boolean essayerMovement(int x, int y) {
         boolean f = false;
+        Case c = this.caseAventurier;
         if(caseExiste(x,y,this.caseAventurier)) {
-            Case destination = this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y];
+            Case destination = this.cases[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y];
             if (!(destination instanceof Obstacle) && !(destination.estOccupe())) {
-                this.caseAventurier.retirerPersonnage();
-                this.caseAventurier = destination;
-                this.caseAventurier.setPersonnage(this.aventurier);
-                this.caseAventurier.faireDegat();
+                Personnage p = this.aventurier;
+                caseAventurier.retirerPersonnage();
+                caseAventurier = this.cases[caseAventurier.getX() + x][caseAventurier.getY() + y];
+                caseAventurier.setPersonnage(p);
+                //this.caseAventurier.faireDegat();
                 f = true;
             } else {
                 System.out.println("case non accessible");
@@ -276,14 +278,15 @@ public class Labyrinthe {
         if(caseExiste(x,y,c)) {
             Case destination = this.cases[c.getX() + x][c.getY() + y];
             if ((!(destination instanceof Obstacle) || this.monstres.get(nbMonstre) instanceof Fantome) && !(destination.estOccupe()) ) {
-                c.retirerPersonnage();
-                c = destination;
-                c.setPersonnage(this.monstres.get(nbMonstre));
+                this.caseMonstres.get(nbMonstre).retirerPersonnage();
+                this.caseMonstres.set(nbMonstre,destination);
+                this.caseMonstres.get(nbMonstre).setPersonnage(this.monstres.get(nbMonstre));
                 f = true;
             }
         }
         return f;
     }
+
 
     private boolean caseExiste(int x,int y,Case c){
         return (c.getX()+x>=0)&&(c.getY()+y>=0)&&(c.getX()+x<21)&&(c.getY()+y<21);
