@@ -1,10 +1,7 @@
 package Game;
 
-import Cases.Case;
-import Cases.Obstacle;
-import Cases.Piege;
-import Cases.Vide;
-import Entites.Monstre;
+import Cases.*;
+import Entites.*;
 import MoteurJeu.DessinJeu;
 
 import javax.imageio.ImageIO;
@@ -18,10 +15,11 @@ public class DessinPerso implements DessinJeu {
 
     private final int TAILLE = 47;
     private JeuPerso jeu;
-    private Image img_aventurier,img_sol,img_mur,img_amu,img_piege,img_troll,img_fantome;
+    private Image img_aventurier, img_sol, img_mur, img_amu, img_piege, img_troll, img_fantome;
 
     /**
      * Constructeur de Dessin
+     *
      * @param j jeu
      */
     public DessinPerso(JeuPerso j) {
@@ -30,6 +28,7 @@ public class DessinPerso implements DessinJeu {
 
     /**
      * Definit ce qui est affiche a l'ecran
+     *
      * @param image bufferedImage
      */
     @Override
@@ -58,39 +57,38 @@ public class DessinPerso implements DessinJeu {
 
         for (int x = 0; x < c.length; x++) {
             for (int y = 0; y < c.length; y++) {
-                if (!(c[y][x] instanceof Obstacle)){
-                    g.drawImage(img_sol, x*TAILLE, y*TAILLE, null);
+
+
+                if (!(c[y][x] instanceof Obstacle)) {
+                    g.drawImage(img_sol, x * TAILLE, y * TAILLE, null);
                     //g.setColor(new Color(67, 67, 67));
                     //g.fillRect(x*TAILLE,y*TAILLE,TAILLE,TAILLE);
-                    if(c[y][x] instanceof Vide) {
+                    if (c[y][x] instanceof Vide) {
                         if ((c[y][x]).getAmulette()) {
                             //g.fillOval(y*TAILLE,x*TAILLE,TAILLE,TAILLE);
                             g.drawImage(img_amu, x * TAILLE, y * TAILLE, null);
-                        } else {
-                            (c[y][x]).retirerAmulette();
                         }
-
                     }
                     if (c[y][x] instanceof Piege) {
                         g.drawImage(img_piege, x * TAILLE, y * TAILLE, null);
                     }
                 } else {
-                    g.drawImage(img_mur, x*TAILLE, y*TAILLE, null);
+                    g.drawImage(img_mur, x * TAILLE, y * TAILLE, null);
                     //g.setColor(new Color(17, 67, 14));
                     //g.fillRect(x*TAILLE,y*TAILLE,TAILLE,TAILLE);
                 }
             }
         }
         // boucle pour les monstres
-        for(int i = 0 ; i<monstre.size();i++){
-            if(monstre.get(i)!=null) {
-                int x = c_monstre.get(i).getX();
-                int y = c_monstre.get(i).getY();
+        for (int i = 0; i < monstre.size(); i++) {
+            if (monstre.get(i) != null) {
+                int x_m = c_monstre.get(i).getX();
+                int y_m = c_monstre.get(i).getY();
                 if (monstre.get(i) instanceof Troll) {
-                    g.drawImage(img_troll, y * TAILLE, x * TAILLE, null);
+                    g.drawImage(img_troll, y_m * TAILLE, x_m * TAILLE, null);
                 } else {
                     //Alors c'est un monstre fantome
-                    g.drawImage(img_fantome, y * TAILLE, x * TAILLE, null);
+                    g.drawImage(img_fantome, y_m * TAILLE, x_m * TAILLE, null);
 
                 }
             }
@@ -100,7 +98,7 @@ public class DessinPerso implements DessinJeu {
         int yAvent = l.getCaseAventurier().getY();
 
 
-        g.drawImage(img_aventurier, yAvent*TAILLE, xAvent*TAILLE, null);
+        g.drawImage(img_aventurier, yAvent * TAILLE, xAvent * TAILLE, null);
         //g.setColor(Color.RED);
         //g.fillOval(yAvent*TAILLE,xAvent*TAILLE,TAILLE,TAILLE);
     }

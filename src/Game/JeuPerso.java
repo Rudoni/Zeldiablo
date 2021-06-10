@@ -34,9 +34,7 @@ public class JeuPerso implements Jeu {
     @Override
     public void evoluer(Commande commandeUser) {
         labyrinthe.evoluerAventurier(commandeUser);
-        if (labyrinthe.getCaseAventurier().getAmulette()){
-            labyrinthe.getCaseAventurier().retirerAmulette();
-        }
+        labyrinthe.evoluerMonstres();
         this.sorti = labyrinthe.etreFini();
     }
 

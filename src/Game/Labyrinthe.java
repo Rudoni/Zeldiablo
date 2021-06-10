@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -19,7 +20,7 @@ public class Labyrinthe {
      * Attributs de type case
      */
     private Case[][] cases;
-    private Case caseDepart,caseArrivee,caseAventurier;;
+    private Case caseArrivee,caseAventurier;;
 
     /**
      * Attributs de type personnages
@@ -37,12 +38,13 @@ public class Labyrinthe {
         //Instanciation des attributs
         this.aventurier = new Aventurier(nom);
         this.monstres = new ArrayList<Monstre>();
+        this.caseMonstres = new ArrayList<Case>();
         this.cases = new Case[21][21];
 
         //Lecture du fichier texte pour créer le labyrinthe
         try {
             //Mise en place d'un reader
-            File f = new File("src/Labyrinthes/labyrinthe.txt");
+            File f = new File("src/Labyrinthes/Test.txt");
             BufferedReader in = new BufferedReader(new FileReader(f));
             String a;
             int i = 0;
@@ -61,7 +63,6 @@ public class Labyrinthe {
                         case ('2'):
                             Vide debut = new Vide(i, j, false);
                             cases[i][j] = debut;
-                            this.caseDepart = debut;
                             this.caseAventurier = debut;
                             this.caseAventurier.setPersonnage(this.aventurier);
                             break;
@@ -72,6 +73,16 @@ public class Labyrinthe {
                             break;
                         case ('4'):
                             cases[i][j] = new Piege(i, j);
+                            break;
+                        case('5'):
+                            Vide c_troll = new Vide(i, j, false);
+                            this.caseMonstres.add(c_troll);
+                            this.monstres.add(new Troll());
+                            break;
+                        case('6'):
+                            Vide c_fant = new Vide(i, j, false);
+                            this.caseMonstres.add(c_fant);
+                            this.monstres.add(new Fantome());
                             break;
                         case ('9'):
                             cases[i][j] = new Vide(i, j, true);
@@ -118,7 +129,6 @@ public class Labyrinthe {
                         case ('2'):
                             Vide debut = new Vide(i, j, false);
                             cases[i][j] = debut;
-                            this.caseDepart = debut;
                             this.caseAventurier = debut;
                             this.caseAventurier.setPersonnage(this.aventurier);
                             break;
@@ -191,16 +201,16 @@ public class Labyrinthe {
             String dep = sc.nextLine();
             switch (dep) {
                 case ("z"):
-                    f = this.essayerMovement(-1, 0, this.aventurier);
+                    f = this.essayerMovement(-1, 0);
                     break;
                 case ("s"):
-                    f = this.essayerMovement(+1, 0, this.aventurier);
+                    f = this.essayerMovement(+1, 0);
                     break;
                 case ("d"):
-                    f = this.essayerMovement(0, +1, this.aventurier);
+                    f = this.essayerMovement(0, +1);
                     break;
                 case ("q"):
-                    f = this.essayerMovement(0, -1, this.aventurier);
+                    f = this.essayerMovement(0, -1);
                     break;
                 default:
                     System.out.println("Veuillez entrer une coordonnée valide :");
@@ -216,16 +226,16 @@ public class Labyrinthe {
     public void deplacer(String c) {
         switch (c) {
             case ("z"):
-                this.essayerMovement(-1, 0, this.aventurier);
+                this.essayerMovement(-1, 0);
                 break;
             case ("s"):
-                this.essayerMovement(+1, 0, this.aventurier);
+                this.essayerMovement(+1, 0);
                 break;
             case ("d"):
-                this.essayerMovement(0, +1, this.aventurier);
+                this.essayerMovement(0, +1);
                 break;
             case ("q"):
-                this.essayerMovement(0, -1, this.aventurier);
+                this.essayerMovement(0, -1);
                 break;
             default:
                 System.out.println("Veuillez entrer une coordonnée valide :");
@@ -235,20 +245,40 @@ public class Labyrinthe {
     /**
      * Méthode interne à la classe pour eviter du copier/coller
      */
-    private boolean essayerMovement(int x, int y, Personnage pers) {
+    private boolean essayerMovement(int x, int y) {
         boolean f = false;
-        if (!(this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y] instanceof Obstacle) && !(this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y].estOccupe())) {
-            this.caseAventurier.retirerPersonnage();
-            this.caseAventurier = this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y];
-            this.caseAventurier.setPersonnage(pers);
-            if(pers instanceof Aventurier) {
+        if(caseExiste(x,y,this.caseAventurier)) {
+            if (!(this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y] instanceof Obstacle) && !(this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y].estOccupe())) {
+                this.caseAventurier.retirerPersonnage();
+                this.caseAventurier = this.getCases()[this.caseAventurier.getX() + x][this.caseAventurier.getY() + y];
+                this.caseAventurier.setPersonnage(this.aventurier);
                 this.caseAventurier.faireDegat();
+                f = true;
+            } else {
+                System.out.println("case non accessible");
             }
-            f = true;
-        } else {
-            System.out.println("case non accessible");
+        }else {
+            System.out.println("Case Inexistante");
         }
         return f;
+    }
+
+    private boolean essayerMovement(int x, int y,int nbMonstre) {
+        boolean f = false;
+        Case c = this.caseMonstres.get(nbMonstre);
+        if(caseExiste(x,y,c)) {
+            if ((!(this.getCases()[c.getX() + x][c.getY() + y] instanceof Obstacle) || this.monstres.get(nbMonstre) instanceof Fantome)&& !(this.getCases()[c.getX() + x][c.getY() + y].estOccupe())) {
+                c.retirerPersonnage();
+                c = this.getCases()[c.getX() + x][c.getY() + y];
+                c.setPersonnage(this.monstres.get(nbMonstre));
+                f = true;
+            }
+        }
+        return f;
+    }
+
+    private boolean caseExiste(int x,int y,Case c){
+        return (c.getX()+x>=0)&&(c.getY()+y>=0)&&(c.getX()+x<=20)&&(c.getY()+y<=20);
     }
 
     /**
@@ -269,7 +299,7 @@ public class Labyrinthe {
      * @return vrai si on a fini le labyrinthe
      */
     public boolean etreFini() {
-        return this.caseAventurier == this.caseArrivee;
+        return ((this.caseAventurier == this.caseArrivee) && (this.aventurier.getAmulette()));
     }
 
     /**
@@ -278,19 +308,20 @@ public class Labyrinthe {
      */
     public void evoluerAventurier(Commande commandeUser) {
         if (commandeUser.gauche) {
-            this.essayerMovement(0, -1, this.aventurier);
+            this.essayerMovement(0, -1);
         }
         if (commandeUser.droite) {
-            this.essayerMovement(0, +1, this.aventurier);
+            this.essayerMovement(0, +1);
         }
         if (commandeUser.haut) {
-            this.essayerMovement(-1, 0, this.aventurier);
+            this.essayerMovement(-1, 0);
         }
         if (commandeUser.bas) {
-            this.essayerMovement(+1, 0, this.aventurier);
+            this.essayerMovement(+1, 0);
         }
         if (this.caseAventurier.getAmulette()) {
             this.aventurier.amuletteRecuperee();
+            this.getCaseAventurier().retirerAmulette();
         }
         if (this.etreFini() && this.aventurier.getAmulette()) {
             System.out.println("Vous avez gagné ! Passage au niveau suivant");
@@ -298,7 +329,14 @@ public class Labyrinthe {
     }
 
     public void evoluerMonstres(){
-
+        Random r = new Random();
+        for (int i=0;i<monstres.size();i++){
+            essayerMovement(r.nextInt(4)-2,r.nextInt(4)-2,i);
+            if(monstres.get(i).etreMort()){
+                monstres.remove(i);
+                caseMonstres.remove(i);
+            }
+        }
     }
 
     /**
