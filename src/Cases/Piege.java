@@ -27,6 +27,10 @@ public class Piege extends Case {
         System.out.println(this.personnage.getPv());
     }
 
+    public boolean getActive() {
+        return this.active;
+    }
+
     @Override
     public boolean getAmulette() {
         return false;
