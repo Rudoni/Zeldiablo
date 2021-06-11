@@ -26,6 +26,8 @@ public class InterfaceGraphique  {
 	 * - construit les Attributs
 	 * 
 	 * @param afficheurUtil l'afficheur a utiliser dans le moteur
+	 * @param x abscisse
+	 * @param y ordonnee
 	 * 
 	 */
 	public InterfaceGraphique(DessinJeu afficheurUtil,int x,int y)
@@ -55,7 +57,7 @@ public class InterfaceGraphique  {
 	
 	/**
 	 * retourne le controleur de l'affichage construit
-	 * @return
+	 * @return le controleur
 	 */
 	public Controleur getControleur() {
 		return controleur;

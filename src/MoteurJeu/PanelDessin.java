@@ -31,10 +31,9 @@ public class PanelDessin extends JPanel {
 	 * Panel associe. Les images stockent le dessin et on demande au panel la
 	 * mise a jour quand le dessin est fini
 	 * 
-	 * @param width
-	 *            largeur de l'image
-	 * @param height
-	 *            hauteur de l'image
+	 * @param x abscisse de l'image
+	 * @param y ordonnee de l'image
+	 * @param affiche dessin jeu
 	 */
 	public PanelDessin(int x, int y, DessinJeu affiche) {
 		super();

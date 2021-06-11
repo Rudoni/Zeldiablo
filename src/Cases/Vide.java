@@ -23,6 +23,7 @@ public class Vide extends Case {
      * @param x emplacement abscisse
      * @param y emplacement ordonnee
      * @param amulette si l'amulette est la
+     * @param coeur coeur ou non de la case
      */
     public Vide(int x, int y, boolean amulette, boolean coeur) {
         super(x,y);

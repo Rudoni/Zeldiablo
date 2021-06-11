@@ -32,6 +32,7 @@ public class Labyrinthe {
     /**
      * Constructeur de labyrinthe a partir d'un fichier texte
      * @param nom nom de l'aventurier
+     * @throws IOException exception si le fichier existe pas
      */
     public Labyrinthe(String nom) throws IOException {
 
@@ -49,6 +50,7 @@ public class Labyrinthe {
      * Constructeur de labyrinthe
      * @param nom nom de l'aventurier qui va y évoluer
      * @param nom_txt nom du txt contenant le labyrinthe a générer
+     * @throws IOException si le fichier existe pas
      */
     public Labyrinthe(String nom, String nom_txt) throws IOException {
 
@@ -220,7 +222,7 @@ public class Labyrinthe {
 
     /**
      * Main afin de tester le programme pendant le developpement du projet
-     * @param args
+     * @param args auguments du main
      */
     public static void main(String[] args) {
         Labyrinthe l = null;

@@ -57,7 +57,7 @@ public abstract class Case {
 
     /**
      * Setter de personnage
-     * @param personnage
+     * @param personnage perso a set
      */
     public void setPersonnage(Personnage personnage) {
         this.personnage = personnage;

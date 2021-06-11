@@ -24,7 +24,7 @@ public class Commande {
 	/**
 	 * constructeur par copie
 	 * copie la commande pour en creer une nouvelle
-	 * @param commandeACopier
+	 * @param commandeACopier commande a copier
 	 */
 	public Commande(Commande commandeACopier)
 	{

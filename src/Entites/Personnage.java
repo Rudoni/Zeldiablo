@@ -20,6 +20,7 @@ public abstract class Personnage {
     /**
      * Constructeur de personnage
      * @param hp points de vie du perso
+     * @param degats degats du perso
      */
     public Personnage(int hp, int degats){
         this.pv = hp;

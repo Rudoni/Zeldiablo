@@ -39,6 +39,9 @@ public class MoteurGraphique {
 
 	/**
 	 * permet de lancer le jeu
+	 * @param width largeur
+	 * @param height hauteur
+	 * @throws InterruptedException en cas d'interruption
 	 */
 	public void lancerJeu(int width, int height) throws InterruptedException {
 
