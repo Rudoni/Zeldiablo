@@ -38,3 +38,8 @@
     - Création d'un nouveau niveau quand on va a la case d'arrivée et qu'on a l'amulette
 - responsable Noé Steiner
 
+- fonctionnalité 8 : Création d'un coeur de recuperation de pv
+    - Création du coeur (+ affichage)
+    - Ajout du gain de vie
+- responsable : Paul Adnet
+
