@@ -12,7 +12,7 @@ public class PiegeTest {
      * Test faire degat
      */
     @org.junit.Test
-    public void faireDegat() {
+    public void testFaireDegat() {
         Piege p = new Piege(1, 1);
         Aventurier a = new Aventurier("Paul");
         p.setPersonnage(a);

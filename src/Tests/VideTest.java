@@ -12,7 +12,7 @@ public class VideTest {
      * Test pour retirer l'amulette de la case
      */
     @Test
-    public void retirerAmulette() {
+    public void testRetirerAmulette() {
         Vide v = new Vide(1, 1, true, false);
         Aventurier a = new Aventurier("Paul");
         v.setPersonnage(a);
@@ -26,7 +26,7 @@ public class VideTest {
      * Test pour retirer le coeur de la case
      */
     @Test
-    public void retirerCoeur() {
+    public void testRetirerCoeur() {
         Vide v = new Vide(1, 1, false, true);
         Aventurier a = new Aventurier("Paul");
         v.setPersonnage(a);

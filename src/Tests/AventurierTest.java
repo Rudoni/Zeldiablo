@@ -11,7 +11,7 @@ public class AventurierTest {
      * Test pour subir des degats
      */
     @Test
-    public void subirDegat() {
+    public void testSubirDegat() {
         Aventurier a = new Aventurier("paul");
         a.subirDegat(1);
         int res = a.getPv();
@@ -22,7 +22,7 @@ public class AventurierTest {
      * Test pour recup l'amulette
      */
     @Test
-    public void amuletteRecuperee() {
+    public void testAmuletteRecuperee() {
         Aventurier a = new Aventurier("paul");
         a.amuletteRecuperee();
         boolean res = a.getAmulette();
@@ -33,7 +33,7 @@ public class AventurierTest {
      * Test pour retirer l'amulette
      */
     @Test
-    public void retirerAmulette() {
+    public void testRetirerAmulette() {
         Aventurier a = new Aventurier("paul");
         a.amuletteRecuperee();
         a.retirerAmulette();

@@ -11,7 +11,7 @@ public class MonstreTest {
      * Test pour faire subir des degats a un monstre
      */
     @Test
-    public void subirDegat() {
+    public void testSubirDegat() {
         Monstre m = new Monstre(10, 1);
         m.subirDegat(1);
         int res = m.getPv();
