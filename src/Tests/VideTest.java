@@ -32,6 +32,6 @@ public class VideTest {
         v.setPersonnage(a);
         v.retirerCoeur();
         boolean res = v.isCoeur();
-        assertFalse("L'amulette est toujours la", res);
+        assertFalse("Le coeur est toujours la", res);
     }
 }
