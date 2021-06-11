@@ -184,6 +184,13 @@ public class Labyrinthe {
         return deplacementReussi;
     }
 
+    /**
+     * Essayer si un mouvement est possible
+     * @param x abscisse de la case ou aller
+     * @param y ordonnee de la case ou aller
+     * @param nbMonstre nb de monstres
+     * @return vrai si le deplacement est possible
+     */
     private boolean essayerMovement(int x, int y,int nbMonstre) {
         boolean deplacementReussi = false;
         Case c = this.caseMonstres.get(nbMonstre);
@@ -200,6 +207,13 @@ public class Labyrinthe {
     }
 
 
+    /**
+     * Verifie si une case existe
+     * @param x abscisse de la case a tester
+     * @param y ordonnee de la case a tester
+     * @param c Case a tester
+     * @return vrai si elle existe
+     */
     private boolean caseExiste(int x,int y,Case c){
         return (c.getX()+x>=0)&&(c.getY()+y>=0)&&(c.getX()+x<21)&&(c.getY()+y<21);
     }
@@ -261,6 +275,9 @@ public class Labyrinthe {
         }
     }
 
+    /**
+     * Permet de faire evoluer les monstres
+     */
     public void evoluerMonstres(){
         Random r = new Random();
         for (int i=0;i<this.monstres.size();i++){
@@ -274,6 +291,10 @@ public class Labyrinthe {
         }
     }
 
+    /**
+     * permet de faire attaquer les monstres
+     * @param nbMonstres nb monstres
+     */
     public void monstreAttaque(int nbMonstres){
         int[] coordonneesX= {0,0,-1,+1} ;
         int[] coordonneesY= {-1,+1,0,0} ;
@@ -287,6 +308,9 @@ public class Labyrinthe {
         }
     }
 
+    /**
+     * Permet de faire attaquer
+     */
     public void attaquer(){
         int[] coordonneesX= {0,0,-1,+1} ;
         int[] coordonneesY= {-1,+1,0,0} ;
@@ -300,6 +324,11 @@ public class Labyrinthe {
         }
     }
 
+    /**
+     * Charge un labyrinthe avec un fichier
+     * @param nom_txt numero du labyrinthe
+     * @throws IOException si le fichier n'est pas existant
+     */
     private void charger(String nom_txt) throws IOException {
         try {
             //Mise en place d'un reader
@@ -372,10 +401,18 @@ public class Labyrinthe {
         return this.caseAventurier;
     }
 
+    /**
+     * getter des monstres
+     * @return la liste des monstres
+     */
     public ArrayList<Monstre> getMonstres(){
         return this.monstres;
     }
 
+    /**
+     * getter des cases ou sont les monstres
+     * @return la listes des cases
+     */
     public ArrayList<Case> getCaseMonstres(){
         return this.caseMonstres;
     }

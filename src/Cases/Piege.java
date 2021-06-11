@@ -1,7 +1,7 @@
 package Cases;
 
 /**
- * classe obstacle
+ * classe piege
  */
 public class Piege extends Case {
 
@@ -21,11 +21,19 @@ public class Piege extends Case {
         System.out.println(this.personnage.getPv());
     }
 
+    /**
+     * getter amulette
+     * @return vrai si l'amulette est presente
+     */
     @Override
     public boolean getAmulette() {
         return false;
     }
 
+    /**
+     * getter coeur
+     * @return vrai si le coeur est la
+     */
     @Override
     public boolean isCoeur() {
         return false;

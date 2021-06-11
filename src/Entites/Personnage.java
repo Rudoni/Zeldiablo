@@ -4,8 +4,17 @@ package Entites;
  * Classe abstraite personnage
  */
 public abstract class Personnage {
+    /**
+     * Pv du personnage
+     */
     private int pv;
+    /**
+     * degats que le personnage inflige
+     */
     private int degats;
+    /**
+     * pv maximaux que le perso peut avoir
+     */
     private int pvMax;
 
     /**
@@ -45,18 +54,34 @@ public abstract class Personnage {
         return this.degats;
     }
 
+    /**
+     * Savoir si le perso est mort
+     * @return vrai si le perso est mort
+     */
     public boolean etreMort() {
         return this.getPv() <= 0;
     }
 
+    /**
+     * Permet de faire subir des degats a un personnage
+     * @param d degats subis
+     */
     public abstract void subirDegat(int d);
 
+    /**
+     * permet a un personnage d'en attaquer un autre
+     * @param p victime
+     */
     public void attaquer(Personnage p) {
         if (p != null){
             p.subirDegat(this.getDegats());
         }
     }
 
+    /**
+     * getter du nombre de pvmax du personnage
+     * @return pvmax du personnage
+     */
     public int getPvMax() {
         return pvMax;
     }

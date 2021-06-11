@@ -14,16 +14,19 @@ public class Obstacle extends Case {
         super(x,y);
     }
 
-    @Override
-    public void faireDegat() {
-
-    }
-
+    /**
+     * getter amulette
+     * @return vrai si l'amulette est presente
+     */
     @Override
     public boolean getAmulette() {
         return false;
     }
 
+    /**
+     * getter coeur
+     * @return vrai si le coeur est la
+     */
     @Override
     public boolean isCoeur() {
         return false;
@@ -31,6 +34,11 @@ public class Obstacle extends Case {
 
     @Override
     public void retirerAmulette() {
+
+    }
+
+    @Override
+    public void faireDegat() {
 
     }
 

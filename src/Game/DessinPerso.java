@@ -11,15 +11,19 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Classe DessinPerso
+ */
 public class DessinPerso implements DessinJeu {
-
+    /**
+     * Attribus contenant les images, le jeu et la taille des images
+     */
     private final int TAILLE = 40;
     private JeuPerso jeu;
     private Image img_aventurier, img_sol, img_mur, img_amu, img_piege, img_troll, img_fantome, img_coeur;
 
     /**
      * Constructeur de Dessin
-     *
      * @param j jeu
      */
     public DessinPerso(JeuPerso j) {
@@ -28,7 +32,6 @@ public class DessinPerso implements DessinJeu {
 
     /**
      * Definit ce qui est affiche a l'ecran
-     *
      * @param image bufferedImage
      */
     @Override
@@ -107,6 +110,14 @@ public class DessinPerso implements DessinJeu {
         //g.fillOval(yAvent*TAILLE,xAvent*TAILLE,TAILLE,TAILLE);
     }
 
+    /**
+     * Permet d'afficher la barre de vie au dessus des personnages
+     * @param g graphics
+     * @param x abscisse
+     * @param y ordonnee
+     * @param p personnage sur lequel est la barre
+     * @param color couleur de la barre
+     */
     public void barreVie(Graphics2D g,int x,int y,Personnage p, Color color){
             /*if (p.getPv() <= 20){
             if(p instanceof Aventurier){

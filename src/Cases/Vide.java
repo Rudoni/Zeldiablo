@@ -57,10 +57,17 @@ public class Vide extends Case {
 
     }
 
+    /**
+     * getter coeur
+     * @return vrai si le coeur est la
+     */
     public boolean isCoeur() {
         return coeur;
     }
 
+    /**
+     * retire le coeur de la case si elle le contient
+     */
     public void retirerCoeur(){
         if (this.getPersonnage() instanceof Aventurier && this.isCoeur()){
             coeur = false;

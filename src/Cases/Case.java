@@ -63,6 +63,9 @@ public abstract class Case {
         this.personnage = personnage;
     }
 
+    /**
+     * Retirer un perso de la case
+     */
     public void retirerPersonnage(){
         this.personnage = null;
     }
@@ -82,15 +85,25 @@ public abstract class Case {
     public abstract void faireDegat();
 
     /**
-     * Permet de
-     * @return
+     * getter amulette
+     * @return vrai si l'amulette est la
      */
     public abstract boolean getAmulette();
 
+    /**
+     * getter coeur
+     * @return vrai si le coeur est la
+     */
     public abstract boolean isCoeur();
 
+    /**
+     * permet de retirer l'amulette
+     */
     public abstract void retirerAmulette();
 
+    /**
+     * permet de retirer le coeur
+     */
     public abstract void retirerCoeur();
 
 }

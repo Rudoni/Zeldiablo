@@ -4,10 +4,14 @@ package Entites;
  * Classe Aventurier
  */
 public class Aventurier extends Personnage {
+    /**
+     * Nom de l'aventurier
+     */
     private String nom;
+    /**
+     * Amulette de l'aventurier
+     */
     private boolean amulette;
-
-
     /**
      * Constructeur d'aventurier
      *
@@ -19,6 +23,10 @@ public class Aventurier extends Personnage {
         this.amulette = false;
     }
 
+    /**
+     * Permet de subir de degats
+     * @param d degats subis
+     */
     public void subirDegat(int d) {
         if (!this.etreMort()) {
             this.setPv(this.getPv() - d);
@@ -44,6 +52,9 @@ public class Aventurier extends Personnage {
         return this.amulette;
     }
 
+    /**
+     * retire l'amulette de l'aventurier
+     */
     public void retirerAmulette() {this.amulette = false;}
 
 
