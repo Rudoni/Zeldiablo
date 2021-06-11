@@ -2,6 +2,7 @@ package Tests;
 
 import Entites.Aventurier;
 import Game.Labyrinthe;
+import MoteurJeu.Commande;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -10,10 +11,9 @@ import static org.junit.Assert.*;
 
 public class LabyrintheTest {
 
+
     @Test
     public void testEtreFini() throws IOException {
-        Labyrinthe l = new Labyrinthe("Paul", "labyrinthe1");
-        l.getAventurier().amuletteRecuperee();
     }
 
     @Test
@@ -23,11 +23,13 @@ public class LabyrintheTest {
     }
 
     @Test
-    public void testEvoluerAventurier() {
-    }
-
-    @Test
-    public void testEvoluerMonstres() {
+    public void testEvoluerAventurier() throws IOException {
+        Labyrinthe l = new Labyrinthe("pol");
+        Commande c = new Commande();
+        c.bas = true;
+        l.evoluerAventurier(c);
+        boolean res = l.getCaseAventurier().getX() == 1 && l.getCaseAventurier().getY() == 3;
+        assertTrue("Aventurier pas a la bonne case", res);
     }
 
     @Test
@@ -35,7 +37,7 @@ public class LabyrintheTest {
     }
 
     @Test
-    public void testAttaquer() {
+    public void testAttaquer() throws IOException {
     }
 
 }
