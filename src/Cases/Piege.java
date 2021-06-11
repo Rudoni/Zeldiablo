@@ -16,14 +16,8 @@ public class Piege extends Case {
         super(x,y);
     }
 
-
-    public void desactivePiege(){
-        this.active = false;
-    }
-
     public void faireDegat(){
         this.personnage.subirDegat(1);
-        this.desactivePiege();
         System.out.println(this.personnage.getPv());
     }
 
