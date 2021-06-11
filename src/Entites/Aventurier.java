@@ -57,5 +57,13 @@ public class Aventurier extends Personnage {
      */
     public void retirerAmulette() {this.amulette = false;}
 
+    /**
+     * Setter amulette
+     * @param b etat
+     */
+    public void setAmulette(boolean b) {
+        this.amulette = b;
+    }
+
 
 }

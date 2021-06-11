@@ -418,4 +418,20 @@ public class Labyrinthe {
     public ArrayList<Case> getCaseMonstres(){
         return this.caseMonstres;
     }
+
+    /**
+     * setter case aventurier pour le test
+     * @param c case
+     */
+    public void setCase(Case c) {
+        this.caseAventurier = c;
+    }
+
+    /**
+     * getter case arrivee
+     * @return case arrivee
+     */
+    public Case getCaseArrivee() {
+        return this.caseArrivee;
+    }
 }

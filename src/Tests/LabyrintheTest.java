@@ -14,6 +14,10 @@ public class LabyrintheTest {
 
     @Test
     public void testEtreFini() throws IOException {
+        Labyrinthe l = new Labyrinthe("pol");
+        l.getAventurier().setAmulette(true);
+        l.setCase(l.getCaseArrivee());
+        assertEquals("non fini", true, l.etreFini());
     }
 
     @Test
