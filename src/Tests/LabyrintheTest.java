@@ -16,6 +16,11 @@ public class LabyrintheTest {
         l.getAventurier().amuletteRecuperee();
     }
 
+    @Test
+    public void testChangerLabyrinthe() throws IOException {
+        Labyrinthe l = new Labyrinthe("pol");
+        l.changerLabyrinthe(2);
+    }
 
     @Test
     public void testEvoluerAventurier() {
