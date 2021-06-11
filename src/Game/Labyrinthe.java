@@ -275,11 +275,11 @@ public class Labyrinthe {
     }
 
     public void monstreAttaque(int nbMonstres){
-        int[] coordonnéesX= {0,0,-1,+1} ;
-        int[] coordonnéesY= {-1,+1,0,0} ;
+        int[] coordonneesX= {0,0,-1,+1} ;
+        int[] coordonneesY= {-1,+1,0,0} ;
         for(int i = 0;i<4;i++) {
-            if(caseExiste(coordonnéesX[i],coordonnéesY[i],this.caseMonstres.get(nbMonstres))){
-                Case c = this.cases[this.caseMonstres.get(nbMonstres).getX() + coordonnéesX[i]][this.caseMonstres.get(nbMonstres).getY() + coordonnéesY[i]];
+            if(caseExiste(coordonneesX[i],coordonneesY[i],this.caseMonstres.get(nbMonstres))){
+                Case c = this.cases[this.caseMonstres.get(nbMonstres).getX() + coordonneesX[i]][this.caseMonstres.get(nbMonstres).getY() + coordonneesY[i]];
                 if (c.getPersonnage() == this.aventurier) {
                     this.monstres.get(nbMonstres).attaquer(this.aventurier);
                 }
@@ -288,11 +288,11 @@ public class Labyrinthe {
     }
 
     public void attaquer(){
-        int[] coordonnéesX= {0,0,-1,+1} ;
-        int[] coordonnéesY= {-1,+1,0,0} ;
+        int[] coordonneesX= {0,0,-1,+1} ;
+        int[] coordonneesY= {-1,+1,0,0} ;
         for(int i = 0;i<4;i++) {
-            if(caseExiste(coordonnéesX[i],coordonnéesY[i],this.caseAventurier)){
-                Case c = this.cases[this.caseAventurier.getX() + coordonnéesX[i]][this.caseAventurier.getY() + coordonnéesY[i]];
+            if(caseExiste(coordonneesX[i],coordonneesY[i],this.caseAventurier)){
+                Case c = this.cases[this.caseAventurier.getX() + coordonneesX[i]][this.caseAventurier.getY() + coordonneesY[i]];
                 if (c.getPersonnage() != null) {
                     this.aventurier.attaquer(c.getPersonnage());
                 }
