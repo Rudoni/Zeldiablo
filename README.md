@@ -1,8 +1,4 @@
-# zeldiablo-project
- Projet de COO
+# zeldiablo
+Zelda x diablo game
 
-ADNET Paul
-ARNOUT Fabrice 
-RUDONI Antonin 
-STEINER Noé 
-VIGNERON Steven
+
