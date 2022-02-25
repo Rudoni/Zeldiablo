@@ -36,16 +36,17 @@ public class DessinPerso implements DessinJeu {
      */
     @Override
     public void dessiner(BufferedImage image) {
+
         //Chargement des images
         try {
-            img_aventurier = ImageIO.read(new File(".\\src\\Images\\magik.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
-            img_mur = ImageIO.read(new File(".\\src\\Images\\GrayWalls.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
-            img_sol = ImageIO.read(new File(".\\src\\Images\\grass.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
-            img_amu = ImageIO.read(new File(".\\src\\Images\\amulette.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
-            img_piege = ImageIO.read(new File(".\\src\\Images\\piege.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
-            img_troll = ImageIO.read(new File(".\\src\\Images\\troll.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
-            img_fantome = ImageIO.read(new File(".\\src\\Images\\fantome.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
-            img_coeur = ImageIO.read(new File(".\\src\\Images\\coeur.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
+            img_aventurier = ImageIO.read(new File("."+File.separator+"src"+File.separator+"Images"+File.separator+"magik.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
+            img_mur = ImageIO.read(new File("."+File.separator+"src"+File.separator+"Images"+File.separator+"GrayWalls.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
+            img_sol = ImageIO.read(new File("."+File.separator+"src"+File.separator+"Images"+File.separator+"grass.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
+            img_amu = ImageIO.read(new File("."+File.separator+"src"+File.separator+"Images"+File.separator+"amulette.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
+            img_piege = ImageIO.read(new File("."+File.separator+"src"+File.separator+"Images"+File.separator+"piege.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
+            img_troll = ImageIO.read(new File("."+File.separator+"src"+File.separator+"Images"+File.separator+"troll.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
+            img_fantome = ImageIO.read(new File("."+File.separator+"src"+File.separator+"Images"+File.separator+"fantome.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
+            img_coeur = ImageIO.read(new File("."+File.separator+"src"+File.separator+"Images"+File.separator+"coeur.png")).getScaledInstance(TAILLE, TAILLE, Image.SCALE_DEFAULT);
         } catch (IOException ex) {
             System.out.println("Erreur : Chargement des images");
         }
